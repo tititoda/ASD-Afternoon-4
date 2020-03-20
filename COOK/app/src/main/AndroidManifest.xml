@@ -12,6 +12,7 @@
 
         <activity android:name=".add_recipe"></activity>
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,5 +22,6 @@
     </application>
     <!-- <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" /> -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
 
 </manifest>
