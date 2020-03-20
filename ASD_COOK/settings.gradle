@@ -1,0 +1,2 @@
+rootProject.name='COOK'
+include ':app'
