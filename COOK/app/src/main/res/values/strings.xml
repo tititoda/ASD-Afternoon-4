@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">COOK</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_prep_time">Preparation Time</string>
+    <string name="hint_cook_time">Cooking Time</string>
+    <string name="hint_description">Description</string>
+    <string name="hint_step_by_step">step-by-step description</string>
+    <string name="hint_picture">Picture</string>
+</resources>
