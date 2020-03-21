@@ -38,6 +38,7 @@
                 android:layout_marginLeft="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputName"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:hint="@string/hint_name"
@@ -64,6 +65,7 @@
                 android:layout_marginTop="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_description" />
@@ -87,6 +89,7 @@
                 android:layout_marginTop="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputCookingTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_cook_time"
@@ -111,6 +114,7 @@
                 android:layout_marginTop="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputPreparationTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_prep_time"
@@ -132,10 +136,11 @@
                 android:layout_marginLeft="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputSbs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_step_by_step"
-                    android:inputType="textMultiLine"/>
+                    android:inputType="textMultiLine" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -161,6 +166,13 @@
                 android:layout_gravity="bottom|center|right|center_vertical"
                 android:layout_marginTop="16dp"
                 android:text="@string/hint_picture" />
+
+            <Button
+                android:id="@+id/submitRecipe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#B1A1A1"
+                android:text="submit" />
         </LinearLayout>
     </ScrollView>
 
