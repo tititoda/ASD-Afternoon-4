@@ -3,8 +3,11 @@ package com.example.cook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-
+import android.app.Activity;
+import android.view.View;
+import android.widget.Button;
 
 //overview
 
@@ -14,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
     //fill recipes
@@ -22,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
 
     //add recipe
         //goto activity add_recipe
+    public void startAddRecipe (View v) {
+        Intent add_recipe_intent = new Intent(MainActivity.this, add_recipe.class);
+        startActivity(add_recipe_intent);
+    }
+
 
     //menu
 
