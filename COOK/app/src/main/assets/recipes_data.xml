@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <object>
+        <id>0</id>
+        <name>Bolognese</name>
+        <description>
+            desc ="with minced meat, vegetables and tomato sauce\r\n
+            Ingredients:
+            •    Onions, garlic, carrots, celery
+            •    Minced meat
+            •    Tomato sauce
+            •    Basil, oregano, salt, pepper, thyme
+            •    oil"
+        </description>
+        <cooking_time>30</cooking_time>
+        <preparation_time>20</preparation_time>
+        <sbs_description>
+                heat saucepan, add oil, vegetables, thyme and salt
+                2.    add minced meat and cook until browned all over
+                3.    add tomato sauce and simmer
+                4.    add some more spices
+        </sbs_description>
+        <tags>pasta, meat, dinner</tags>
+        <image>empty</image>
+    </object>
+    <object>
+        <id>1</id>
+        <name>Bolognese</name>
+        <description>
+            desc ="with minced meat, vegetables and tomato sauce\r\n
+            Ingredients:
+            •    Onions, garlic, carrots, celery
+            •    Minced meat
+            •    Tomato sauce
+            •    Basil, oregano, salt, pepper, thyme
+            •    oil"
+        </description>
+        <prep_time>20</prep_time>
+        <cooking_time>30</cooking_time>
+        <sbs_description>
+            heat saucepan, add oil, vegetables, thyme and salt
+            2.    add minced meat and cook until browned all over
+            3.    add tomato sauce and simmer
+            4.    add some more spices
+        </sbs_description>
+        <tags>pasta, meat, dinner</tags>
+        <image>empty</image>
+    </object>
+    <object>
+        <id>2</id>
+        <name>Bolognese</name>
+        <description>
+            desc ="with minced meat, vegetables and tomato sauce\r\n
+            Ingredients:
+            •    Onions, garlic, carrots, celery
+            •    Minced meat
+            •    Tomato sauce
+            •    Basil, oregano, salt, pepper, thyme
+            •    oil"
+        </description>
+        <prep_time>20</prep_time>
+        <cooking_time>30</cooking_time>
+        <sbs_description>
+            heat saucepan, add oil, vegetables, thyme and salt
+            2.    add minced meat and cook until browned all over
+            3.    add tomato sauce and simmer
+            4.    add some more spices
+        </sbs_description>
+        <tags>pasta, meat, dinner</tags>
+        <image>empty</image>
+    </object>
+    <object>
+        <id>3</id>
+        <name>Bolognese</name>
+        <description>
+            desc ="with minced meat, vegetables and tomato sauce\r\n
+            Ingredients:
+            •    Onions, garlic, carrots, celery
+            •    Minced meat
+            •    Tomato sauce
+            •    Basil, oregano, salt, pepper, thyme
+            •    oil"
+        </description>
+        <prep_time>20</prep_time>
+        <cooking_time>30</cooking_time>
+        <sbs_description>
+            heat saucepan, add oil, vegetables, thyme and salt
+            2.    add minced meat and cook until browned all over
+            3.    add tomato sauce and simmer
+            4.    add some more spices
+        </sbs_description>
+        <tags>pasta, meat, dinner</tags>
+        <image>empty</image>
+    </object>
+    <object>
+        <id>4</id>
+        <name>Bolognese</name>
+        <description>
+            desc ="with minced meat, vegetables and tomato sauce\r\n
+            Ingredients:
+            •    Onions, garlic, carrots, celery
+            •    Minced meat
+            •    Tomato sauce
+            •    Basil, oregano, salt, pepper, thyme
+            •    oil"
+        </description>
+        <prep_time>20</prep_time>
+        <cooking_time>30</cooking_time>
+        <sbs_description>
+            heat saucepan, add oil, vegetables, thyme and salt
+            2.    add minced meat and cook until browned all over
+            3.    add tomato sauce and simmer
+            4.    add some more spices
+        </sbs_description>
+        <tags>pasta, meat, dinner</tags>
+        <image>empty</image>
+    </object>
+</resources>

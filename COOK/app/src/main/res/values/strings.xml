@@ -6,5 +6,14 @@
     <string name="hint_description">Description</string>
     <string name="hint_step_by_step">step-by-step description</string>
     <string name="hint_picture">Picture</string>
-
+    <string name="tag0">pasta</string>
+    <string name="tag1">meat</string>
+    <string name="tag2">dinner</string>
+    <string name="tag3">breakfast</string>
+    <string name="tag4">sweets</string>
+    <string name="tag5">healthy</string>
+    <string name="tag6">vegan</string>
+    <string name="tag7">lunch</string>
+    <string name="tag8">fast food</string>
+    <string name="tag9">soup</string>
 </resources>
