@@ -21,15 +21,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/label_name"
-                android:layout_width="49dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/hint_name" />
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_name"
                 android:layout_width="412dp"
@@ -47,15 +38,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/hint_description" />
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout"
                 android:layout_width="409dp"
@@ -70,15 +52,6 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_description" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="19dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/hint_cook_time" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_cook_time"
@@ -96,15 +69,6 @@
                     android:inputType="numberSigned" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/hint_prep_time" />
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout3"
                 android:layout_width="409dp"
@@ -121,15 +85,6 @@
                     android:inputType="numberSigned" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/hint_step_by_step" />
-
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -142,6 +97,106 @@
                     android:hint="@string/hint_step_by_step"
                     android:inputType="textMultiLine" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="166dp">
+
+                <CheckBox
+                    android:id="@+id/tag4"
+                    android:layout_width="100pt"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tag8"
+                    android:text="@string/tag4" />
+
+                <CheckBox
+                    android:id="@+id/tag9"
+                    android:layout_width="100pt"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tag3"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_toEndOf="@+id/tag0"
+                    android:layout_toRightOf="@+id/tag0"
+                    android:text="@string/tag9" />
+
+                <CheckBox
+                    android:id="@+id/tag2"
+                    android:layout_width="100pt"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tag1"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/tag2"
+                    tools:text="@string/tag2" />
+
+                <CheckBox
+                    android:id="@+id/tag7"
+                    android:layout_width="100pt"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tag6"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_toEndOf="@+id/tag0"
+                    android:layout_toRightOf="@+id/tag0"
+                    android:text="@string/tag7"
+                    tools:text="@string/tag7" />
+
+                <CheckBox
+                    android:id="@+id/tag3"
+                    android:layout_width="100pt"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tag2"
+                    android:text="@string/tag3" />
+
+                <CheckBox
+                    android:id="@+id/tag8"
+                    android:layout_width="100pt"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tag7"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_toEndOf="@+id/tag0"
+                    android:layout_toRightOf="@+id/tag0"
+                    android:text="@string/tag8" />
+
+                <CheckBox
+                    android:id="@+id/tag1"
+                    android:layout_width="100pt"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tag0"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/tag1" />
+
+                <CheckBox
+                    android:id="@+id/tag6"
+                    android:layout_width="100pt"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tag5"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_toEndOf="@+id/tag0"
+                    android:layout_toRightOf="@+id/tag0"
+                    android:text="@string/tag6" />
+
+                <CheckBox
+                    android:id="@+id/tag0"
+                    android:layout_width="100pt"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tag0" />
+
+                <CheckBox
+                    android:id="@+id/tag5"
+                    android:layout_width="100pt"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_toEndOf="@+id/tag0"
+                    android:layout_toRightOf="@+id/tag0"
+                    android:text="@string/tag5" />
+
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/textView5"
@@ -173,6 +228,7 @@
                 android:layout_height="wrap_content"
                 android:background="#B1A1A1"
                 android:text="submit" />
+
         </LinearLayout>
     </ScrollView>
 
