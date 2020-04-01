@@ -3,18 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".add_recipe">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,28 +20,28 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_name"
-                android:layout_width="412dp"
-                android:layout_height="54dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp">
+                android:layout_weight="90">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputName"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="match_parent"
                     android:hint="@string/hint_name"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/label_name" />
+                    app:layout_constraintTop_toBottomOf="parent" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout"
-                android:layout_width="409dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp">
+                android:layout_margin="10dp"
+                android:layout_marginStart="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputDescription"
@@ -55,11 +52,10 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_cook_time"
-                android:layout_width="409dp"
-                android:layout_height="56dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginStart="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputCookingTime"
@@ -71,11 +67,10 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout3"
-                android:layout_width="409dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp">
+                android:layout_margin="10dp"
+                android:layout_marginStart="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputPreparationTime"
@@ -87,20 +82,23 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp">
+                android:layout_height="200dp"
+                android:layout_margin="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputSbs"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:hint="@string/hint_step_by_step"
-                    android:inputType="textMultiLine" />
+                    android:inputType="textMultiLine"
+                    android:overScrollMode="ifContentScrolls" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <RelativeLayout
+
                 android:layout_width="match_parent"
-                android:layout_height="166dp">
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
 
                 <CheckBox
                     android:id="@+id/tag4"
@@ -209,8 +207,8 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="170dp"
-                android:layout_height="105dp"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
                 android:layout_gravity="center"
                 app:srcCompat="@android:drawable/ic_menu_report_image" />
 

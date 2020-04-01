@@ -20,32 +20,36 @@ import android.widget.TextView;
 import java.io.FileNotFoundException;
 
 public class AddRecipe extends AppCompatActivity {
+    private String name;
+    private String description = "";
+    private int prep_time = 0;
+    private int cooking_time = 0;
+    private String sbs_description = "";
+    //private Image food_picture = null;
 
-    public ImageView recipe_image;
-    //private Button submit = findViewById(R.id.submitRecipe);
     private boolean[] tags = new boolean[10];
 
     private CheckBox tag0, tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8, tag9;
 
+
+    public ImageView recipe_image;
+
     public boolean[] getTags() {
         return tags;
     }
-   /* EditText recipe_name = findViewById(R.id.inputName);
-    EditText recipe_cooking_time = findViewById(R.id.inputCookingTime);
-    EditText recipe_preparation_time = findViewById(R.id.inputPreparationTime);
-    EditText recipe_Sbs = findViewById(R.id.inputSbs);
-    Button submit_btn = findViewById(R.id.submitRecipe);
-
-    String name;
-    int cooking_time;
-    int preparationTime;
-    String sbs;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_recipe);
         Button add_picture_button = findViewById(R.id.add_picture);
+        Button submit = findViewById(R.id.submitRecipe);
+        final EditText input_name = findViewById(R.id.inputName);
+        final EditText input_description = findViewById(R.id.inputDescription);
+        final EditText input_prep_time = findViewById(R.id.inputPreparationTime);
+        final EditText input_cooking_time = findViewById(R.id.inputCookingTime);
+        final EditText input_sbs_description = findViewById(R.id.inputSbs);
+
 
         tag0 = (CheckBox) findViewById(R.id.tag0);
         tag1 = (CheckBox) findViewById(R.id.tag1);
@@ -139,6 +143,35 @@ public class AddRecipe extends AppCompatActivity {
             }
         });
 
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                name = input_name.getText().toString();
+                assert(!name.isEmpty());
+
+                description = input_description.getText().toString();
+                assert(!description.isEmpty());
+
+                prep_time = Integer.parseInt(input_prep_time.getText().toString());
+                assert(prep_time != 0);
+
+                cooking_time = Integer.parseInt(input_cooking_time.getText().toString());
+                assert(cooking_time != 0);
+
+                sbs_description = input_sbs_description.getText().toString();
+                assert(!sbs_description.isEmpty());
+
+                //food_picture = input_picture.getIma
+
+                //Test
+                //description.setText(name);
+
+
+                //Intent go_back_to_main = new Intent(AddRecipe.this, MainActivity.class);
+                //startActivity(go_back_to_main);
+            }
+        });
+
         /*submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -167,7 +200,10 @@ public class AddRecipe extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent, 0);
             }});
+
+
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
