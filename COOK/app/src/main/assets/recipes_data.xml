@@ -15,104 +15,222 @@
         <cooking_time>30</cooking_time>
         <preparation_time>20</preparation_time>
         <sbs_description>
-                heat saucepan, add oil, vegetables, thyme and salt
-                2.    add minced meat and cook until browned all over
-                3.    add tomato sauce and simmer
-                4.    add some more spices
+            1.    heat saucepan, add oil, vegetables, thyme and salt
+            2.    add minced meat and cook until browned all over
+            3.    add tomato sauce and simmer
+            4.    add some more spices
         </sbs_description>
         <tags>pasta, meat, dinner</tags>
-        <image>empty</image>
+        <image>bolognese</image>
     </object>
     <object>
         <id>1</id>
-        <name>Bolognese</name>
+        <name>Pancakes</name>
         <description>
-            desc ="with minced meat, vegetables and tomato sauce\r\n
+            desc ="sweet and fluffy pancakes \r\n
             Ingredients:
-            •    Onions, garlic, carrots, celery
-            •    Minced meat
-            •    Tomato sauce
-            •    Basil, oregano, salt, pepper, thyme
-            •    oil"
+            •	flour
+            •	milk
+            •	eggs
+            •	butter
+            •	sugar
+            •	salt"
         </description>
-        <prep_time>20</prep_time>
-        <cooking_time>30</cooking_time>
+        <prep_time>10</prep_time>
+        <cooking_time>15</cooking_time>
         <sbs_description>
-            heat saucepan, add oil, vegetables, thyme and salt
-            2.    add minced meat and cook until browned all over
-            3.    add tomato sauce and simmer
-            4.    add some more spices
+            1.	whisk egg whites
+            2.	mix egg yolks with rest of ingredients
+            3.	fold in whisked egg whites
+            4.	cook on non-stick pan over medium heat until surface is somewhat dry, then turn over
         </sbs_description>
-        <tags>pasta, meat, dinner</tags>
-        <image>empty</image>
+        <tags>breakfast, sweets</tags>
+        <image>pancakes</image>
     </object>
     <object>
         <id>2</id>
-        <name>Bolognese</name>
+        <name>Banana bread</name>
         <description>
-            desc ="with minced meat, vegetables and tomato sauce\r\n
+            desc ="sweet and light banana bread\r\n
             Ingredients:
-            •    Onions, garlic, carrots, celery
-            •    Minced meat
-            •    Tomato sauce
-            •    Basil, oregano, salt, pepper, thyme
-            •    oil"
+            •	bananas
+            •	oil
+            •	sugar
+            •	flour"
         </description>
-        <prep_time>20</prep_time>
-        <cooking_time>30</cooking_time>
+        <prep_time>10</prep_time>
+        <cooking_time>20</cooking_time>
         <sbs_description>
-            heat saucepan, add oil, vegetables, thyme and salt
-            2.    add minced meat and cook until browned all over
-            3.    add tomato sauce and simmer
-            4.    add some more spices
+            1.	heat oven
+            2.	add ingredients in a bowl and mix
+            3.	put dough in oven save form
+            4.	bake for 20 minutes (180C)
         </sbs_description>
-        <tags>pasta, meat, dinner</tags>
-        <image>empty</image>
+        <tags>breakfast, sweets, healthy, vegan</tags>
+        <image>bananabread</image>
     </object>
     <object>
         <id>3</id>
-        <name>Bolognese</name>
+        <name>Quiche Lorraine</name>
         <description>
-            desc ="with minced meat, vegetables and tomato sauce\r\n
+            desc ="French vegetable tarte\r\n
             Ingredients:
-            •    Onions, garlic, carrots, celery
-            •    Minced meat
-            •    Tomato sauce
-            •    Basil, oregano, salt, pepper, thyme
-            •    oil"
+            •	quiche dough
+            •	oil
+            •	eggs
+            •	whipped cream
+            •	cheese
+            •	bacon
+            •	leek/onion
+            •	nutmeg, salt, pepper"
         </description>
-        <prep_time>20</prep_time>
+        <prep_time>25</prep_time>
         <cooking_time>30</cooking_time>
         <sbs_description>
-            heat saucepan, add oil, vegetables, thyme and salt
-            2.    add minced meat and cook until browned all over
-            3.    add tomato sauce and simmer
-            4.    add some more spices
+            1.	roll out pastry, lift into tin
+            2.	beat eggs in a bowl, add cream
+            3.	fry onions/leek and add into bowl
+            4.	add filling into pastry
+            5.	bake 25 min (180 C°)
         </sbs_description>
-        <tags>pasta, meat, dinner</tags>
-        <image>empty</image>
+        <tags>lunch</tags>
+        <image>quiche</image>
     </object>
     <object>
         <id>4</id>
-        <name>Bolognese</name>
+        <name>fried eggs</name>
         <description>
-            desc ="with minced meat, vegetables and tomato sauce\r\n
+            desc ="eggs fried in a pan\r\n
             Ingredients:
-            •    Onions, garlic, carrots, celery
-            •    Minced meat
-            •    Tomato sauce
-            •    Basil, oregano, salt, pepper, thyme
-            •    oil"
+            •	eggs
+            •	oil
+            •	salt"
         </description>
-        <prep_time>20</prep_time>
-        <cooking_time>30</cooking_time>
+        <prep_time>5</prep_time>
+        <cooking_time>5</cooking_time>
         <sbs_description>
-            heat saucepan, add oil, vegetables, thyme and salt
-            2.    add minced meat and cook until browned all over
-            3.    add tomato sauce and simmer
-            4.    add some more spices
+            1.	crack the egg into a pan (medium heat, oiled)
+            2.	add salt, chives
+            3.	keep an eye on the yolks
+        </sbs_description>
+        <tags>breakfast</tags>
+        <image>friedeggs</image>
+    </object>
+    <object>
+        <id>5</id>
+        <name>Pizza</name>
+        <description>
+            desc ="whatever you like on dough\r\n
+            Ingredients:
+            •	pizza dough (self-made or bought)
+            •	tomato sauce
+            •	mozzarella
+            •	ham/prosciutto/vegetables"
+        </description>
+        <cooking_time>25</cooking_time>
+        <preparation_time>10</preparation_time>
+        <sbs_description>
+            1.	spread tomato sauce
+            2.	spread chunks of mozzarella
+            3.	add toppings and spices you like
+            4.	put in preheated oven on maximum heat for 5-10 min
+        </sbs_description>
+        <tags>fast food</tags>
+        <image>pizza</image>
+    </object>
+    <object>
+        <id>6</id>
+        <name>Vegetable soup</name>
+        <description>
+            desc ="the best of all vegetable soups\r\n
+            Ingredients:
+            •	vegetable broth (self-made or instant)
+            •	onions, garlic
+            •	carrots
+            •	celery
+            •	parsley, chives, salt, pepper
+            •	oil
+            •	tomato purée"
+        </description>
+        <cooking_time>30</cooking_time>
+        <preparation_time>30</preparation_time>
+        <sbs_description>
+            1.	gently cook onions, carrots and celery
+            2.	add tomato purée, garlic and herbs
+            3.	add broth and let simmer for a while
+            4.	sprinkle with some herbs
+        </sbs_description>
+        <tags>soup, lunch, healthy</tags>
+        <image>vegsoup</image>
+    </object>
+    <object>
+        <id>7</id>
+        <name>Garlic chicken</name>
+        <description>
+            desc ="chicken filet fried in garlic butter\r\n
+            Ingredients:
+            •	chicken filet
+            •	butter
+            •	garlic
+            •	salt, pepper, oil "
+        </description>
+        <cooking_time>10</cooking_time>
+        <preparation_time>15</preparation_time>
+        <sbs_description>
+            1.	heat pan to medium heat, add butter and smashed garlic
+            2.	add pieces of chicken and cook until golde
+        </sbs_description>
+        <tags>meat, dinner</tags>
+        <image>garlichicken</image>
+    </object>
+    <object>
+        <id>8</id>
+        <name>Potato soup</name>
+        <description>
+            desc ="rich and tasty potato soup\r\n
+            Ingredients:
+            •	onion, garlic
+            •	potatoes
+            •	brouth
+            •	oil/butter, salt, pepper "
+        </description>
+        <cooking_time>15</cooking_time>
+        <preparation_time>35</preparation_time>
+        <sbs_description>
+            1.	dice onions, potatoes
+            2.	saute in oil/butter until browned, then add garlic
+            3.	add broth and cook until the potatoes are softened
+            4.	you can add some milk or cream
         </sbs_description>
         <tags>pasta, meat, dinner</tags>
-        <image>empty</image>
+        <image>potatosoup</image>
     </object>
+    <object>
+        <id>9</id>
+        <name>Tomato salad</name>
+        <description>
+            desc ="quick and healthy tomato salat\r\n
+            Ingredients:
+            •	tomatoes
+            •	onions
+            •	vinegar, olive oil
+            •	salt, pepper "
+        </description>
+        <cooking_time>30</cooking_time>
+        <preparation_time>20</preparation_time>
+        <sbs_description>
+            1.	dice tomatoes and onions and put them into a bowl
+            2.	add salt, pepper, vinegar and olive oil
+        </sbs_description>
+        <tags>healthy, vegan</tags>
+        <image>tomatosalad</image>
+    </object>
+    <favorite>
+        <idFavorite>0</idFavorite>
+        <idFavorite>2</idFavorite>
+        <idFavorite>3</idFavorite>
+        <idFavorite>4</idFavorite>
+        <idFavorite>5</idFavorite>
+        <idFavorite>7</idFavorite>
+    </favorite>
 </resources>
