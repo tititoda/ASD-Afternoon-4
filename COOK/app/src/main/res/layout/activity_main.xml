@@ -8,6 +8,37 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <SearchView
+        android:id="@+id/search_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toStartOf="@id/button_sort_by_time"
+        android:layout_toLeftOf="@id/button_sort_by_time">
+
+    </SearchView>
+
+    <ListView
+        android:id="@+id/listViewShowRecipes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tabMode"
+        android:layout_marginTop="0dp"
+        android:longClickable="true">
+
+
+    </ListView>
+
+    <Spinner
+        android:id="@+id/spinner_filter_tags"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/tabMode"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:spinnerMode="dropdown" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButtonAddRecipe"
         android:layout_width="wrap_content"
@@ -15,31 +46,14 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="startAddRecipe"
         app:backgroundTint="#FFFFFF"
-        app:srcCompat="@android:drawable/ic_menu_add"
-        android:layout_marginEnd="16dp" />
-
-    <SearchView
-        android:id="@+id/search_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="-2dp"
-        android:layout_marginLeft="-2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp" >
-
-
-    </SearchView>
+        app:srcCompat="@android:drawable/ic_menu_add" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabMode"
@@ -49,25 +63,38 @@
         android:layout_centerHorizontal="true">
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItemAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="all" />
+            android:text="@string/tab_all" />
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItemFavourite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="favorite" />
+            android:text="@string/tab_favorite" />
 
     </com.google.android.material.tabs.TabLayout>
 
-    <ListView
-        android:id="@+id/lsitViewShowRecipes"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tabMode"
-        android:layout_marginTop="0dp">
+    <Button
+        android:id="@+id/button_sort_by_time"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="0dp"
+        android:layout_toStartOf="@+id/spinner_filter_tags"
+        android:layout_toLeftOf="@+id/spinner_filter_tags"
+        android:drawableStart="@android:drawable/arrow_down_float"
+        android:drawableLeft="@android:drawable/arrow_down_float"
+        android:text="@string/tab_all"
+        android:onClick="sortByTime"
+        />
 
-    </ListView>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         />
 
 
 </RelativeLayout>

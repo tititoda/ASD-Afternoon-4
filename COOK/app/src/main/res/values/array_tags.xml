@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="tags_array">
+        <item>tags</item>
+        <item>pasta</item>
+        <item>meat</item>
+        <item>dinner</item>
+        <item>breakfast</item>
+        <item>sweets</item>
+        <item>healthy</item>
+        <item>vegan</item>
+        <item>lunch</item>
+        <item>fast food</item>
+        <item>soup</item>
+    </string-array>
+
+</resources>

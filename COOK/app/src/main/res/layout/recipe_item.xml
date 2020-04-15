@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:onClick="onCreateContextMenu">
+
 
     <ImageView
         android:id="@+id/imageViewRecipeOverview"
-        android:layout_width="400dp"
-        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="201dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -16,7 +18,32 @@
         android:layout_marginLeft="0dp"
         android:layout_marginTop="0dp"
         android:contentDescription="food picture"
+        android:longClickable="true"
+        android:scaleType="centerCrop"
         app:srcCompat="@android:drawable/btn_dialog" />
+
+    <Switch
+        android:id="@+id/switch_favorite"
+        style="@style/Base.CardView"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageViewRecipeOverview"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="false"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:checked="false"
+        android:shadowColor="#000000"
+        android:shadowDx="2.5"
+        android:shadowDy="2.3"
+        android:shadowRadius="2.6"
+        android:text="@string/switch_favorite"
+        android:textAllCaps="true"
+        android:textColor="@android:color/transparent"
+        android:textIsSelectable="false"
+        android:textSize="8sp"
+        tools:checked="false" />
 
     <TextView
         android:id="@+id/textViewRecipeName"
@@ -32,7 +59,13 @@
         android:layout_marginEnd="278dp"
         android:layout_marginRight="278dp"
         android:layout_marginBottom="110dp"
-        android:text="TextView" />
+        android:shadowColor="#000000"
+        android:shadowDx="2.5"
+        android:shadowDy="2.3"
+        android:shadowRadius="2.6"
+        android:text="TextView"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white" />
 
     <TextView
         android:id="@+id/textViewPreparationTime"
@@ -48,7 +81,13 @@
         android:layout_marginEnd="278dp"
         android:layout_marginRight="278dp"
         android:layout_marginBottom="74dp"
-        android:text="TextView" />
+        android:shadowColor="#000000"
+        android:shadowDx="2.5"
+        android:shadowDy="2.3"
+        android:shadowRadius="2.6"
+        android:text="TextView"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white" />
 
     <TextView
         android:id="@+id/textViewCookingTime"
@@ -64,7 +103,13 @@
         android:layout_marginEnd="278dp"
         android:layout_marginRight="278dp"
         android:layout_marginBottom="37dp"
-        android:text="TextView" />
+        android:shadowColor="#000000"
+        android:shadowDx="2.5"
+        android:shadowDy="2.3"
+        android:shadowRadius="2.6"
+        android:text="TextView"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white" />
 
     <TextView
         android:id="@+id/textViewRecipeType"
@@ -80,6 +125,12 @@
         android:layout_marginEnd="278dp"
         android:layout_marginRight="278dp"
         android:layout_marginBottom="1dp"
-        android:text="TextView" />
+        android:shadowColor="#000000"
+        android:shadowDx="2.5"
+        android:shadowDy="2.3"
+        android:shadowRadius="2.6"
+        android:text="TextView"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>

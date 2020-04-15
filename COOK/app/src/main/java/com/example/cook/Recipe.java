@@ -10,6 +10,12 @@ import java.util.HashMap;
 public class Recipe {
     private static int recipeObjectCount = 0;
 
+
+    public static ArrayList<Recipe> allRecipe = new ArrayList<>();
+    public static ArrayList<Recipe> favoriteRecipe = new ArrayList<>();
+
+
+
     public static String pastaString = "pasta";
     public static String meatString = "meat";
     public static String dinnerString = "dinner";
@@ -27,7 +33,7 @@ public class Recipe {
     private int prep_time;
     private int cooking_time;
     private String sbs_description;
-    private Image food_picture;
+    private int food_picture;
     private boolean pasta, meat, dinner, breakfast, sweets, healthy, vegan,
             lunch, fast_food, soup;
 
@@ -38,7 +44,7 @@ public class Recipe {
     };
 
     public Recipe(int id, String name, String description, int prep_time, int cooking_time,
-                   Image food_picture,String sbs_description, Boolean[] Tags) {
+                   int food_picture,String sbs_description, Boolean[] Tags) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -59,6 +65,43 @@ public class Recipe {
         recipeObjectCount++;
     };
 
+
+    public String getStringTagForListView(){
+        String tempTag = new String();
+        char fill = ' ';
+        if(this.pasta)
+            tempTag = tempTag + fill + pastaString;
+        if(this.meat)
+            tempTag = tempTag + fill + meatString;
+        if(this.dinner)
+            tempTag = tempTag + fill + dinnerString;
+        if(this.breakfast)
+            tempTag = tempTag + fill + breakfastString;
+        if(this.sweets)
+            tempTag = tempTag + fill + sweetsString;
+        if(this.healthy)
+            tempTag = tempTag + fill + healthyString;
+        if(this.vegan)
+            tempTag = tempTag + fill + veganString;
+        if(this.lunch)
+            tempTag = tempTag + fill + lunchString;
+        if(this.fast_food)
+            tempTag = tempTag + fill + fastFoodString;
+        if(this.soup)
+            tempTag = tempTag + fill + soupString;
+        //trim string for listView (first fill char)
+        return tempTag.substring(1, tempTag.length());
+    }
+
+    public static Recipe getRecipeByName(String recipeName)
+    {
+        for(Recipe temp : allRecipe)
+        {
+            if((temp.getName().compareTo(recipeName)) == 0)
+                return temp;
+        }
+        return new Recipe();
+    }
 
     //getter and setter
     public int getId() {
@@ -101,11 +144,11 @@ public class Recipe {
         this.cooking_time = cooking_time;
     }
 
-    public Image getFood_picture() {
+    public int getFood_picture() {
         return food_picture;
     }
 
-    public void setFood_picture(Image food_picture) {
+    public void setFood_picture(int food_picture) {
         this.food_picture = food_picture;
     }
 
