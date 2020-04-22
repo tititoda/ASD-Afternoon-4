@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity  {
     private ArrayList<Recipe> currentlySelectedRecipe = new ArrayList<>();
     private Boolean isAll = true;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -213,8 +214,6 @@ public class MainActivity extends AppCompatActivity  {
         }
         return true;
     }
-
-
 
     //fills the list View
     private void loadListView(ArrayList<Recipe> recipesToLoad){
