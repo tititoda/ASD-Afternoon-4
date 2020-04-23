@@ -151,17 +151,24 @@ public class MainActivity extends AppCompatActivity {
             Recipe.initialised = true;
         }
 
-        else if(Recipe.new_recipe_added = true)
-        {
+        else if(Recipe.new_recipe_added == true) {
             addRecipe();
             Recipe.new_recipe_added = false;
+        }
+
+        else if(Recipe.edit_recipe == true) {
+            Recipe.allRecipe.set(Recipe.recipe_to_edit_index, Recipe.recipe_to_edit);
+            Recipe.edit_recipe = false;
         }
     }
 
     public void startAddRecipe (View v) {
+        Recipe.edit_recipe = false;
         onPause();
+
         Intent add_recipe_intent = new Intent(MainActivity.this, AddRecipe.class);
         startActivity(add_recipe_intent);
+
         finish();
     }
 
@@ -226,6 +233,15 @@ public class MainActivity extends AppCompatActivity {
             });
             builder.show();
         }
+        if (item.getTitle() == "edit") {
+            Recipe.recipe_to_edit = currentlySelectedRecipe.get(recipe_index);
+            Recipe.edit_recipe = true;
+            Recipe.recipe_to_edit_index = recipe_index;
+
+            Intent add_recipe_intent = new Intent(MainActivity.this, AddRecipe.class);
+            startActivity(add_recipe_intent);
+            finish();
+        }
         return true;
     }
 
@@ -277,6 +293,4 @@ public class MainActivity extends AppCompatActivity {
 
         Recipe.allRecipe.add(new Recipe(100, name, description, prep_time, cooking_time, food_picture, sbs_description, tags));
     }
-
-
 }
