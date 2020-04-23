@@ -18,7 +18,7 @@ import java.io.InputStream;
 public class XMLFileParser {
 
 
-    public ArrayList<Recipe> parseXMLFile(Activity context) throws IOException,
+    public void parseXMLFile(Activity context) throws IOException,
             XmlPullParserException {
         ArrayList<Recipe> recipes = new ArrayList<>();
         int id = 0;
@@ -26,10 +26,11 @@ public class XMLFileParser {
         String description = null;
         int prepareTime = 0;
         int cookingTime = 0;
-        Image recipeImage = null;
+        int recipeImage = 0;
         String sbsDescription = null;
         Boolean[] tags = new Boolean[]{false, false, false, false, false, false, false,
                 false, false, false};
+        int idFavorite = 0;
 
 
         InputStream inputStream = context.getAssets().open("recipes_data.xml");
@@ -70,13 +71,21 @@ public class XMLFileParser {
                     }
                     else if("image".equals(parser.getName()))
                     {
+                        parser.next();
+                        recipeImage = context.getResources().getIdentifier(parser.getText() ,
+                                "drawable", context.getPackageName());
                         recipes.add(new Recipe(id, name, description, prepareTime, cookingTime,
                                 recipeImage, sbsDescription, tags));
+                    }
+                    else if("idFavorite".equals(parser.getName())){
+                        parser.next();
+                        idFavorite = Integer.parseInt(parser.getText());
+                        Recipe.favoriteRecipe.add(recipes.get(idFavorite));
                     }
                     break;
             }
         }
-        return recipes;
+        Recipe.allRecipe = recipes;
     }
 
     private Boolean[] getTagsForRecipeObject(String stringTags){
