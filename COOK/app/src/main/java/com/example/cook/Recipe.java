@@ -11,7 +11,13 @@ public class Recipe {
     private static int recipeObjectCount = 0;
 
     public static boolean initialised = false;
+
     public static boolean new_recipe_added = false;
+
+    public static boolean edit_recipe = false;
+    public static Recipe recipe_to_edit;
+    public static int recipe_to_edit_index;
+
     public static ArrayList<Recipe> allRecipe = new ArrayList<>();
     public static ArrayList<Recipe> favoriteRecipe = new ArrayList<>();
 
