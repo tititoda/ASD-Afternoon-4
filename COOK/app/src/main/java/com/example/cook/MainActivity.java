@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -16,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -30,16 +32,16 @@ import com.google.android.material.tabs.TabLayout;
 
 import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.xml.parsers.ParserConfigurationException;
 
 //overview
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
     private ArrayList<Recipe> currentlySelectedRecipe = new ArrayList<>();
     private Boolean isAll = true;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,22 +135,34 @@ public class MainActivity extends AppCompatActivity  {
 
         });
 
-
-        try {
+        if(Recipe.initialised == false)
+        {
+            try {
             /*
             get data from xml
             */
-            XMLFileParser parse = new XMLFileParser();
-            parse.parseXMLFile(this);
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-          e.printStackTrace();
+                XMLFileParser parse = new XMLFileParser();
+                parse.parseXMLFile(this);
+            } catch (XmlPullParserException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Recipe.initialised = true;
+        }
+
+        else if(Recipe.new_recipe_added = true)
+        {
+            addRecipe();
+            Recipe.new_recipe_added = false;
         }
     }
+
     public void startAddRecipe (View v) {
+        onPause();
         Intent add_recipe_intent = new Intent(MainActivity.this, AddRecipe.class);
         startActivity(add_recipe_intent);
+        finish();
     }
 
     //context menu items
@@ -226,7 +240,6 @@ public class MainActivity extends AppCompatActivity  {
         Integer[] loadImageID = new Integer[size];
         Boolean[] isFavorite = new Boolean[size];
 
-
         for(int iterator = 0; iterator < size; iterator++)
         {
             Recipe tempRecipe = recipesToLoad.get(iterator);
@@ -250,6 +263,19 @@ public class MainActivity extends AppCompatActivity  {
     public void sortByTime(View view)
     {
         loadListView(FilterTags.getTimeSortedRecipes(currentlySelectedRecipe));
+    }
+
+    private void addRecipe() {
+        String name = AddRecipe.name;
+        String description = AddRecipe.description;
+        int prep_time = AddRecipe.prep_time;
+        int cooking_time = AddRecipe.cooking_time;
+        String sbs_description = AddRecipe.sbs_description;
+        int food_picture = this.getResources().getIdentifier("tarator" ,
+                "drawable", getPackageName());
+        Boolean[] tags = AddRecipe.tags;
+
+        Recipe.allRecipe.add(new Recipe(100, name, description, prep_time, cooking_time, food_picture, sbs_description, tags));
     }
 
 

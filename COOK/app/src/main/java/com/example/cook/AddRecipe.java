@@ -2,9 +2,11 @@ package com.example.cook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -17,24 +19,30 @@ import android.widget.ImageView;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
+import org.xml.sax.SAXException;
+
 import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 public class AddRecipe extends AppCompatActivity {
-    private String name;
-    private String description = "";
-    private int prep_time = 0;
-    private int cooking_time = 0;
-    private String sbs_description = "";
-    //private Image food_picture = null;
+    static String name;
+    static String description = "";
+    static int prep_time = 0;
+    static int cooking_time = 0;
+    static String sbs_description = "";
+    static Image food_picture = null;
 
-    private boolean[] tags = new boolean[10];
+    static Boolean[] tags = {false, false, false, false, false, false, false, false, false, false};
 
     private CheckBox tag0, tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8, tag9;
 
 
-    public ImageView recipe_image;
+    static ImageView recipe_image;
 
-    public boolean[] getTags() {
+    public Boolean[] getTags() {
         return tags;
     }
 
@@ -161,14 +169,39 @@ public class AddRecipe extends AppCompatActivity {
                 sbs_description = input_sbs_description.getText().toString();
                 assert(!sbs_description.isEmpty());
 
+                //MainActivity.recipes.add(new Recipe(100, name, description, prep_time,
+                //       cooking_time, food_picture, sbs_description, getTags()));
+
+                //Recipe new_recipe = new Recipe(100, name, description, prep_time,
+                //       cooking_time, food_picture, sbs_description, getTags());
+
+/*
+                XMLFileParser parse = new XMLFileParser();
+
+                try {
+                    parse.XMLAddRecipe(current);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ParserConfigurationException e) {
+                    e.printStackTrace();
+                } catch (SAXException e) {
+                    e.printStackTrace();
+                } catch (TransformerException e) {
+                    e.printStackTrace();
+                }
+
+*/
                 //food_picture = input_picture.getIma
 
                 //Test
                 //description.setText(name);
 
+                Recipe.new_recipe_added = true;
+                Intent go_back_to_main = new Intent(AddRecipe.this, MainActivity.class);
+                startActivity(go_back_to_main);
 
-                //Intent go_back_to_main = new Intent(AddRecipe.this, MainActivity.class);
-                //startActivity(go_back_to_main);
+                //MainActivity.load_list = true;
+                //finish();
             }
         });
 
