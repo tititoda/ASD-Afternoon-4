@@ -10,11 +10,10 @@ import java.util.HashMap;
 public class Recipe {
     private static int recipeObjectCount = 0;
 
-
+    public static boolean initialised = false;
+    public static boolean new_recipe_added = false;
     public static ArrayList<Recipe> allRecipe = new ArrayList<>();
     public static ArrayList<Recipe> favoriteRecipe = new ArrayList<>();
-
-
 
     public static String pastaString = "pasta";
     public static String meatString = "meat";
@@ -40,11 +39,11 @@ public class Recipe {
 
     //constructor
     public Recipe(){
-            recipeObjectCount++;
+        recipeObjectCount++;
     };
 
     public Recipe(int id, String name, String description, int prep_time, int cooking_time,
-                   int food_picture,String sbs_description, Boolean[] Tags) {
+                  int food_picture,String sbs_description, Boolean[] Tags) {
         this.id = id;
         this.name = name;
         this.description = description;
