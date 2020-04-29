@@ -231,4 +231,25 @@ public class ExampleUnitTest {
         assertEquals("must return arrayListRecipeSorted", FilterTags.getTimeSortedRecipes(arrayListRecipe3), arrayListRecipeSorted);
 
     }
+
+    public void testAddRecipe()
+    {
+
+        int id = 10;
+        String name = "Spaghetti";
+        String description = "description";
+        int prepareTime = 4;
+        int cookingTime = 5;
+        Image testImage = null;
+        String sbsDescription = "step by step";
+        Boolean[] tags = new Boolean[]{true, false, true, false, true,
+                false, true, false, true, false};
+
+
+        Recipe testRecipe = new Recipe(id, name, description, prepareTime,
+                cookingTime, 0, sbsDescription, tags);
+
+        assertEquals(testRecipe.getRecipeObjectCount(), 15);
+
+    }
 }
