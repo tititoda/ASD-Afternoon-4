@@ -2,12 +2,15 @@ package com.example.cook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.renderscript.Sampler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,35 +20,46 @@ import android.widget.ImageView;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
+import org.xml.sax.SAXException;
+
 import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 public class AddRecipe extends AppCompatActivity {
+    static String name;
+    static String description;
+    static int prep_time;
+    static int cooking_time;
+    static String sbs_description;
+    static Image food_picture;
 
-    public ImageView recipe_image;
-    //private Button submit = findViewById(R.id.submitRecipe);
-    private boolean[] tags = new boolean[10];
+    static Boolean[] tags = new Boolean[10];
 
     private CheckBox tag0, tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8, tag9;
 
-    public boolean[] getTags() {
+
+    static ImageView recipe_image;
+
+    public Boolean[] getTags() {
         return tags;
     }
-   /* EditText recipe_name = findViewById(R.id.inputName);
-    EditText recipe_cooking_time = findViewById(R.id.inputCookingTime);
-    EditText recipe_preparation_time = findViewById(R.id.inputPreparationTime);
-    EditText recipe_Sbs = findViewById(R.id.inputSbs);
-    Button submit_btn = findViewById(R.id.submitRecipe);
-
-    String name;
-    int cooking_time;
-    int preparationTime;
-    String sbs;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_add_recipe);
         Button add_picture_button = findViewById(R.id.add_picture);
+        Button submit = findViewById(R.id.submitRecipe);
+        final EditText input_name = findViewById(R.id.inputName);
+        final EditText input_description = findViewById(R.id.inputDescription);
+        final EditText input_prep_time = findViewById(R.id.inputPreparationTime);
+        final EditText input_cooking_time = findViewById(R.id.inputCookingTime);
+        final EditText input_sbs_description = findViewById(R.id.inputSbs);
+
 
         tag0 = (CheckBox) findViewById(R.id.tag0);
         tag1 = (CheckBox) findViewById(R.id.tag1);
@@ -58,12 +72,50 @@ public class AddRecipe extends AppCompatActivity {
         tag8 = (CheckBox) findViewById(R.id.tag8);
         tag9 = (CheckBox) findViewById(R.id.tag9);
 
+        if(Recipe.edit_recipe == true)
+        {
+            input_name.setText(Recipe.recipe_to_edit.getName());
+            input_description.setText(Recipe.recipe_to_edit.getDescription());
+            input_prep_time.setText(String.valueOf(Recipe.recipe_to_edit.getPrep_time()));
+            input_cooking_time.setText(String.valueOf(Recipe.recipe_to_edit.getCooking_time()));
+            input_sbs_description.setText(Recipe.recipe_to_edit.getSBSDescription());
+
+            tag0.setChecked(Recipe.recipe_to_edit.isPasta());
+            tag1.setChecked(Recipe.recipe_to_edit.isMeat());
+            tag2.setChecked(Recipe.recipe_to_edit.isDinner());
+            tag3.setChecked(Recipe.recipe_to_edit.isBreakfast());
+            tag4.setChecked(Recipe.recipe_to_edit.isSweets());
+            tag5.setChecked(Recipe.recipe_to_edit.isHealthy());
+            tag6.setChecked(Recipe.recipe_to_edit.isVegan());
+            tag7.setChecked(Recipe.recipe_to_edit.isLunch());
+            tag8.setChecked(Recipe.recipe_to_edit.isFast_food());
+            tag9.setChecked(Recipe.recipe_to_edit.isSoup());
+
+            tags[0] = Recipe.recipe_to_edit.isPasta();
+            tags[1] = Recipe.recipe_to_edit.isMeat();
+            tags[2] = Recipe.recipe_to_edit.isDinner();
+            tags[3] = Recipe.recipe_to_edit.isBreakfast();
+            tags[4] = Recipe.recipe_to_edit.isSweets();
+            tags[5] = Recipe.recipe_to_edit.isHealthy();
+            tags[6] = Recipe.recipe_to_edit.isVegan();
+            tags[7] = Recipe.recipe_to_edit.isLunch();
+            tags[8] = Recipe.recipe_to_edit.isFast_food();
+            tags[9] = Recipe.recipe_to_edit.isSoup();
+        }
+        else
+        {
+            for(int i = 0; i < 10; i++) {
+                tags[i] = false;
+            }
+        }
+
         tag0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(tag0.isChecked()){
                     tags[0] = true;
                 }
+                else tags[0] = false;
             }
         });
         tag1.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +124,7 @@ public class AddRecipe extends AppCompatActivity {
                 if(tag1.isChecked()){
                     tags[1] = true;
                 }
+                else tags[1] = false;
             }
         });
         tag2.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +133,7 @@ public class AddRecipe extends AppCompatActivity {
                 if(tag2.isChecked()){
                     tags[2] = true;
                 }
+                else tags[2] = false;
             }
         });
         tag3.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +142,7 @@ public class AddRecipe extends AppCompatActivity {
                 if(tag3.isChecked()){
                     tags[3] = true;
                 }
+                else tags[3] = false;
             }
         });
         tag4.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +151,7 @@ public class AddRecipe extends AppCompatActivity {
                 if(tag4.isChecked()){
                     tags[4] = true;
                 }
+                else tags[4] = false;
             }
         });
         tag5.setOnClickListener(new View.OnClickListener() {
@@ -104,6 +160,7 @@ public class AddRecipe extends AppCompatActivity {
                 if(tag5.isChecked()){
                     tags[5] = true;
                 }
+                else tags[5] = false;
             }
         });
         tag6.setOnClickListener(new View.OnClickListener() {
@@ -112,6 +169,7 @@ public class AddRecipe extends AppCompatActivity {
                 if(tag6.isChecked()){
                     tags[6] = true;
                 }
+                else tags[6] = false;
             }
         });
         tag7.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +178,7 @@ public class AddRecipe extends AppCompatActivity {
                 if(tag7.isChecked()){
                     tags[7] = true;
                 }
+                else tags[7] = false;
             }
         });
         tag8.setOnClickListener(new View.OnClickListener() {
@@ -128,6 +187,7 @@ public class AddRecipe extends AppCompatActivity {
                 if(tag8.isChecked()){
                     tags[8] = true;
                 }
+                else tags[8] = false;
             }
         });
         tag9.setOnClickListener(new View.OnClickListener() {
@@ -136,6 +196,83 @@ public class AddRecipe extends AppCompatActivity {
                 if(tag9.isChecked()){
                     tags[9] = true;
                 }
+                else tags[9] = false;
+            }
+        });
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                name = input_name.getText().toString();
+                assert(!name.isEmpty());
+
+                description = input_description.getText().toString();
+                assert(!description.isEmpty());
+
+                prep_time = Integer.parseInt(input_prep_time.getText().toString());
+                assert(prep_time != 0);
+
+                cooking_time = Integer.parseInt(input_cooking_time.getText().toString());
+                assert(cooking_time != 0);
+
+                sbs_description = input_sbs_description.getText().toString();
+                assert(!sbs_description.isEmpty());
+
+                //MainActivity.recipes.add(new Recipe(100, name, description, prep_time,
+                //       cooking_time, food_picture, sbs_description, getTags()));
+
+                //Recipe new_recipe = new Recipe(100, name, description, prep_time,
+                //       cooking_time, food_picture, sbs_description, getTags());
+
+/*
+                XMLFileParser parse = new XMLFileParser();
+
+                try {
+                    parse.XMLAddRecipe(current);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ParserConfigurationException e) {
+                    e.printStackTrace();
+                } catch (SAXException e) {
+                    e.printStackTrace();
+                } catch (TransformerException e) {
+                    e.printStackTrace();
+                }
+
+*/
+                //food_picture = input_picture.getIma
+
+                //Test
+                //description.setText(name);
+
+                if(Recipe.edit_recipe == true)
+                {
+                    Recipe.recipe_to_edit.setName(name);
+                    Recipe.recipe_to_edit.setDescription(description);
+                    Recipe.recipe_to_edit.setPrep_time(prep_time);
+                    Recipe.recipe_to_edit.setCooking_time(cooking_time);
+                    Recipe.recipe_to_edit.setSBSDescription(sbs_description);
+
+                    Recipe.recipe_to_edit.setPasta(tags[0]);
+                    Recipe.recipe_to_edit.setMeat(tags[1]);
+                    Recipe.recipe_to_edit.setDinner(tags[2]);
+                    Recipe.recipe_to_edit.setBreakfast(tags[3]);
+                    Recipe.recipe_to_edit.setSweets(tags[4]);
+                    Recipe.recipe_to_edit.setHealthy(tags[5]);
+                    Recipe.recipe_to_edit.setVegan(tags[6]);
+                    Recipe.recipe_to_edit.setLunch(tags[7]);
+                    Recipe.recipe_to_edit.setFast_food(tags[8]);
+                    Recipe.recipe_to_edit.setSoup(tags[9]);
+
+                }
+                else {
+                    Recipe.new_recipe_added = true;
+                }
+
+                Intent go_back_to_main = new Intent(AddRecipe.this, MainActivity.class);
+                startActivity(go_back_to_main);
+
+                finish();
             }
         });
 
@@ -167,7 +304,10 @@ public class AddRecipe extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent, 0);
             }});
+
+
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -183,7 +323,6 @@ public class AddRecipe extends AppCompatActivity {
             }
         }
     }
-
 
 
     /*protected void submitRecipe() {

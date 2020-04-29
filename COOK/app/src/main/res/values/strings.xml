@@ -16,4 +16,11 @@
     <string name="tag7">lunch</string>
     <string name="tag8">fast food</string>
     <string name="tag9">soup</string>
+    <string name="tab_all">all</string>
+    <string name="tab_favorite">favorite</string>
+    <string name="switch_favorite">FAV</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
