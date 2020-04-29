@@ -17,26 +17,12 @@ import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Switch;
-import android.widget.TableLayout;
-import android.widget.TextView;
-import android.widget.Toolbar;
 
-
-import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
-
 import org.xmlpull.v1.XmlPullParserException;
-import javax.xml.parsers.ParserConfigurationException;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -81,18 +67,6 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        /*
-        try {
-            XMLFileParser parse = new XMLFileParser();
-            loadListView(Recipe.allRecipe);
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-         */
-
         final Spinner spinner = (Spinner) findViewById(R.id.spinner_filter_tags);
 
          /*
