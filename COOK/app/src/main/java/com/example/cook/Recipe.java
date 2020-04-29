@@ -108,6 +108,10 @@ public class Recipe {
         return new Recipe();
     }
 
+    public static int getRecipeObjectCount() {
+        return recipeObjectCount;
+    }
+
     //getter and setter
     public int getId() {
         return id;
