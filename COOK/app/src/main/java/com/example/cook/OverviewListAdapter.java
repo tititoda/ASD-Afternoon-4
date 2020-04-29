@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.SearchEvent;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class OverviewListAdapter extends ArrayAdapter<String> {
-
     private String[] recipeName;
     private String[] cookingTime;
     private String[] preparationTime;
