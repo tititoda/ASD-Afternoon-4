@@ -6,48 +6,67 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
+
+import android.view.View;
+import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.TextView;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Switch;
-import android.widget.TableLayout;
-import android.widget.TextView;
-import android.widget.Toolbar;
 
-
-import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
-
 import org.xmlpull.v1.XmlPullParserException;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import javax.xml.parsers.ParserConfigurationException;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 //overview
 public class MainActivity extends AppCompatActivity {
+
+    class SearchResult {
+        Recipe found;
+        int matches;
+        SearchResult(Recipe found, int matches) {
+            this.found = found;
+            this.matches = matches;
+        }
+    }
+    class SearchResultMatchesComparator implements Comparator<SearchResult> {
+        public int compare(SearchResult s1, SearchResult s2) {
+            if (s1.matches < s2.matches)
+                return 1;
+            else if (s1.matches > s2.matches)
+                return -1;
+            return 0;
+        }
+    }
+
+    ArrayList<Recipe> recipes = new ArrayList<Recipe>(){};
+    ArrayList<Recipe> foundRecipes = new ArrayList<Recipe>(){};
+    PriorityQueue<SearchResult> searchResults = new PriorityQueue<SearchResult>(1,
+            new SearchResultMatchesComparator());
     private ArrayList<Recipe> currentlySelectedRecipe = new ArrayList<>();
     private Boolean isAll = true;
 
+    private SearchView ourSearchBar;
+    private TextView debugText7;
+
+    private String[] splitSearchQuery(String query) {
+        return query.split("[-, ]+");
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         final Spinner spinner = (Spinner) findViewById(R.id.spinner_filter_tags);
 
          /*
@@ -60,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
                 if(tab.getPosition() == 1){
                     //reset spinner
                     spinner.setSelection(0);
-
                     loadListView(Recipe.favoriteRecipe);
                     isAll = false;
                 }
@@ -68,26 +86,20 @@ public class MainActivity extends AppCompatActivity {
                 {
                     //reset spinner
                     spinner.setSelection(0);
-
                     loadListView(Recipe.allRecipe);
                     isAll = true;
                 }
-
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
-
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
                 if(tab.getPosition() == 1)
                 {
                     //reset spinner
                     spinner.setSelection(0);
-
                     loadListView(Recipe.favoriteRecipe);
                     isAll = false;
                 }
@@ -95,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
                 {
                     //reset spinner
                     spinner.setSelection(0);
-
                     loadListView(Recipe.allRecipe);
                     isAll = true;
                 }
@@ -107,8 +118,6 @@ public class MainActivity extends AppCompatActivity {
         */
         ListView recipe_overview = findViewById((R.id.listViewShowRecipes));
         registerForContextMenu(recipe_overview);
-
-
         ///////////spinner filter tags///////////////////////
 
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -125,14 +134,10 @@ public class MainActivity extends AppCompatActivity {
                     loadListView(FilterTags.getFilteredRecipe(position,Recipe.allRecipe));
                 else
                     loadListView(FilterTags.getFilteredRecipe(position,Recipe.favoriteRecipe));
-
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-
             }
-
         });
 
         if(Recipe.initialised == false)
@@ -160,15 +165,81 @@ public class MainActivity extends AppCompatActivity {
             Recipe.allRecipe.set(Recipe.recipe_to_edit_index, Recipe.recipe_to_edit);
             Recipe.edit_recipe = false;
         }
+        //debugText7 = findViewById(R.id.debugText7);
+        //debugText7.setText("aasdf");
+        ourSearchBar = findViewById(R.id.search_bar);
+        ourSearchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if (isAll) {
+                    recipes = Recipe.allRecipe;
+                }
+                else {
+                    recipes = Recipe.favoriteRecipe;
+                }
+                boolean foundSomething = false;
+                String[] splitQuery = null;
+                foundRecipes.clear();
+                //search description text for query
+                //results will be displayed at top
+                for (Recipe r : recipes) {
+                    if (r.getName().toLowerCase().contains(query.toLowerCase())) {
+                        //debugText7.setText("found " + r.getName());
+                        foundRecipes.add(r);
+                        foundSomething = true;
+                    }
+                }
+                //search description for query, order by hits of search terms
+                splitQuery = splitSearchQuery(query);
+                searchResults = new PriorityQueue<SearchResult>(1, new SearchResultMatchesComparator());
+                for (Recipe r : recipes) {
+                    int matches = 0;
+                    for (String word : splitQuery) {
+                        if (r.getDescription().toLowerCase().contains(word.toLowerCase()) ||
+                                r.getSBSDescription().toLowerCase().contains(word.toLowerCase())) {
+                            matches++;
+                        }
+                    }
+                    if (matches > 0) {
+                        searchResults.add(new SearchResult(r, matches));
+                        foundSomething = true;
+                    }
+                }
+                while(!searchResults.isEmpty()) {
+                    SearchResult s = searchResults.poll();
+                    if (!foundRecipes.contains(s.found)) {
+                        foundRecipes.add(s.found);
+                    }
+                    //debugText7.setText("found " + s.found.getName() + " " + s.matches + "matches");
+                }
+
+                if (!foundSomething) {
+                    //debugText7.setText("failed to find " + query);
+                    if (isAll) {
+                        loadListView(Recipe.allRecipe);
+                    }
+                    else {
+                        loadListView(Recipe.favoriteRecipe);
+                    }
+                }
+                else {
+                    loadListView(foundRecipes);
+                }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
     }
 
     public void startAddRecipe (View v) {
         Recipe.edit_recipe = false;
         onPause();
-
         Intent add_recipe_intent = new Intent(MainActivity.this, AddRecipe.class);
         startActivity(add_recipe_intent);
-
         finish();
     }
 
@@ -246,9 +317,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //fills the list View
-    private void loadListView(ArrayList<Recipe> recipesToLoad){
-        currentlySelectedRecipe = recipesToLoad;
-        int size = recipesToLoad.size();
+    private void loadListView(ArrayList<Recipe> recipesToDisplay) {
+        currentlySelectedRecipe = recipesToDisplay;
+        int size = recipesToDisplay.size();
         String[] loadRecipeName = new String[size];
         String[] loadCookingTime = new String[size];
         String[] loadPreparationTime = new String[size];
@@ -258,7 +329,7 @@ public class MainActivity extends AppCompatActivity {
 
         for(int iterator = 0; iterator < size; iterator++)
         {
-            Recipe tempRecipe = recipesToLoad.get(iterator);
+            Recipe tempRecipe = recipesToDisplay.get(iterator);
             loadRecipeName[iterator] = tempRecipe.getName();
             loadCookingTime[iterator] = Integer.toString(tempRecipe.getCooking_time());
             loadPreparationTime[iterator] = Integer.toString(tempRecipe.getPrep_time());
