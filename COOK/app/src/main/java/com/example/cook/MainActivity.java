@@ -215,7 +215,12 @@ public class MainActivity extends AppCompatActivity {
 
                 if (!foundSomething) {
                     //debugText7.setText("failed to find " + query);
-                    loadListView(Recipe.allRecipe);
+                    if (isAll) {
+                        loadListView(Recipe.allRecipe);
+                    }
+                    else {
+                        loadListView(Recipe.favoriteRecipe);
+                    }
                 }
                 else {
                     loadListView(foundRecipes);
