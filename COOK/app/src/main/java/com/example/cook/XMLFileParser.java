@@ -10,6 +10,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,7 +28,7 @@ public class XMLFileParser {
         int prepareTime = 0;
         int cookingTime = 0;
         int recipeImage = 0;
-        String sbsDescription = null;
+        ArrayList<String> sbsDescription = null;
         Boolean[] tags = new Boolean[]{false, false, false, false, false, false, false,
                 false, false, false};
         int idFavorite = 0;
@@ -63,7 +64,14 @@ public class XMLFileParser {
                     }
                     else if("sbs_description".equals(parser.getName())){
                         parser.next();
-                        sbsDescription = parser.getText();
+                        sbsDescription = new ArrayList<String>();
+                    }
+                    else if("step".equals((parser.getName()))) {
+                        parser.next();
+                        if (sbsDescription == null) {
+                            sbsDescription = new ArrayList<String>();
+                        }
+                        sbsDescription.add(parser.getText());
                     }
                     else if("tags".equals(parser.getName())){
                         parser.next();

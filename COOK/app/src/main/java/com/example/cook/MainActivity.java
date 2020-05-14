@@ -195,9 +195,16 @@ public class MainActivity extends AppCompatActivity {
                 for (Recipe r : recipes) {
                     int matches = 0;
                     for (String word : splitQuery) {
-                        if (r.getDescription().toLowerCase().contains(word.toLowerCase()) ||
-                                r.getSBSDescription().toLowerCase().contains(word.toLowerCase())) {
+                        if (r.getDescription().toLowerCase().contains(word.toLowerCase())) {
                             matches++;
+                        }
+                        else {
+                            for (String step : r.getSBSDescription()) {
+                                if (step.toLowerCase().contains(word.toLowerCase())) {
+                                    matches++;
+                                    break;
+                                }
+                            }
                         }
                     }
                     if (matches > 0) {
@@ -357,7 +364,7 @@ public class MainActivity extends AppCompatActivity {
         String description = AddRecipe.description;
         int prep_time = AddRecipe.prep_time;
         int cooking_time = AddRecipe.cooking_time;
-        String sbs_description = AddRecipe.sbs_description;
+        ArrayList<String> sbs_description = AddRecipe.sbs_description;
         int food_picture = this.getResources().getIdentifier("tarator" ,
                 "drawable", getPackageName());
         Boolean[] tags = AddRecipe.tags;

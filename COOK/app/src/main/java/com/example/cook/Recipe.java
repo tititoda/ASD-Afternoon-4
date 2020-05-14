@@ -37,7 +37,7 @@ public class Recipe {
     private String description;
     private int prep_time;
     private int cooking_time;
-    private String sbs_description;
+    private ArrayList<String> sbs_description;
     private int food_picture;
     private boolean pasta, meat, dinner, breakfast, sweets, healthy, vegan,
             lunch, fast_food, soup;
@@ -49,7 +49,7 @@ public class Recipe {
     };
 
     public Recipe(int id, String name, String description, int prep_time, int cooking_time,
-                  int food_picture,String sbs_description, Boolean[] Tags) {
+                  int food_picture, ArrayList<String> sbs_description, Boolean[] Tags) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -161,9 +161,9 @@ public class Recipe {
         this.food_picture = food_picture;
     }
 
-    public String getSBSDescription() { return sbs_description; }
+    public ArrayList<String> getSBSDescription() { return sbs_description; }
 
-    public void setSBSDescription(String sbs_description) { this.sbs_description = sbs_description; }
+    public void setSBSDescription(ArrayList<String> sbs_description) { this.sbs_description = sbs_description; }
 
     public boolean isPasta() {
         return pasta;
