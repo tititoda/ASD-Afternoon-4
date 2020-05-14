@@ -15,10 +15,10 @@
         <cooking_time>30</cooking_time>
         <preparation_time>20</preparation_time>
         <sbs_description>
-            1.    heat saucepan, add oil, vegetables, thyme and salt
-            2.    add minced meat and cook until browned all over
-            3.    add tomato sauce and simmer
-            4.    add some more spices
+            <step>heat saucepan, add oil, vegetables, thyme and salt</step>
+            <step>add minced meat and cook until browned all over</step>
+            <step>add tomato sauce and simmer</step>
+            <step>add some more spices</step>
         </sbs_description>
         <tags>pasta, meat, dinner</tags>
         <image>bolognese</image>
@@ -39,10 +39,10 @@
         <prep_time>10</prep_time>
         <cooking_time>15</cooking_time>
         <sbs_description>
-            1.	whisk egg whites
-            2.	mix egg yolks with rest of ingredients
-            3.	fold in whisked egg whites
-            4.	cook on non-stick pan over medium heat until surface is somewhat dry, then turn over
+            <step>whisk egg whites</step>
+            <step>mix egg yolks with rest of ingredients</step>
+            <step>fold in whisked egg whites</step>
+            <step>cook on non-stick pan over medium heat until surface is somewhat dry, then turn over</step>
         </sbs_description>
         <tags>breakfast, sweets</tags>
         <image>pancakes</image>
@@ -61,10 +61,10 @@
         <prep_time>10</prep_time>
         <cooking_time>20</cooking_time>
         <sbs_description>
-            1.	heat oven
-            2.	add ingredients in a bowl and mix
-            3.	put dough in oven save form
-            4.	bake for 20 minutes (180C)
+            <step>heat oven</step>
+            <step>add ingredients in a bowl and mix</step>
+            <step>put dough in oven save form</step>
+            <step>bake for 20 minutes (180C)</step>
         </sbs_description>
         <tags>breakfast, sweets, healthy, vegan</tags>
         <image>bananabread</image>
@@ -87,11 +87,11 @@
         <prep_time>25</prep_time>
         <cooking_time>30</cooking_time>
         <sbs_description>
-            1.	roll out pastry, lift into tin
-            2.	beat eggs in a bowl, add cream
-            3.	fry onions/leek and add into bowl
-            4.	add filling into pastry
-            5.	bake 25 min (180 C°)
+            <step>roll out pastry, lift into tin</step>
+            <step>beat eggs in a bowl, add cream</step>
+            <step>fry onions/leek and add into bowl</step>
+            <step>add filling into pastry</step>
+            <step>bake 25 min (180 C°)</step>
         </sbs_description>
         <tags>lunch</tags>
         <image>quiche</image>
@@ -109,9 +109,9 @@
         <prep_time>5</prep_time>
         <cooking_time>5</cooking_time>
         <sbs_description>
-            1.	crack the egg into a pan (medium heat, oiled)
-            2.	add salt, chives
-            3.	keep an eye on the yolks
+            <step>crack the egg into a pan (medium heat, oiled)</step>
+            <step>add salt, chives</step>
+            <step>keep an eye on the yolks</step>
         </sbs_description>
         <tags>breakfast</tags>
         <image>friedeggs</image>
@@ -130,10 +130,10 @@
         <cooking_time>25</cooking_time>
         <preparation_time>10</preparation_time>
         <sbs_description>
-            1.	spread tomato sauce
-            2.	spread chunks of mozzarella
-            3.	add toppings and spices you like
-            4.	put in preheated oven on maximum heat for 5-10 min
+            <step>spread tomato sauce</step>
+            <step>spread chunks of mozzarella</step>
+            <step>add toppings and spices you like</step>
+            <step>put in preheated oven on maximum heat for 5-10 min</step>
         </sbs_description>
         <tags>fast food</tags>
         <image>pizza</image>
@@ -155,10 +155,10 @@
         <cooking_time>30</cooking_time>
         <preparation_time>30</preparation_time>
         <sbs_description>
-            1.	gently cook onions, carrots and celery
-            2.	add tomato purée, garlic and herbs
-            3.	add broth and let simmer for a while
-            4.	sprinkle with some herbs
+            <step>gently cook onions, carrots and celery</step>
+            <step>add tomato purée, garlic and herbs</step>
+            <step>add broth and let simmer for a while</step>
+            <step>sprinkle with some herbs</step>
         </sbs_description>
         <tags>soup, lunch, healthy</tags>
         <image>vegsoup</image>
@@ -177,8 +177,8 @@
         <cooking_time>10</cooking_time>
         <preparation_time>15</preparation_time>
         <sbs_description>
-            1.	heat pan to medium heat, add butter and smashed garlic
-            2.	add pieces of chicken and cook until golde
+            <step>heat pan to medium heat, add butter and smashed garlic</step>
+            <step>add pieces of chicken and cook until golden</step>
         </sbs_description>
         <tags>meat, dinner</tags>
         <image>garlichicken</image>
@@ -197,10 +197,10 @@
         <cooking_time>15</cooking_time>
         <preparation_time>35</preparation_time>
         <sbs_description>
-            1.	dice onions, potatoes
-            2.	saute in oil/butter until browned, then add garlic
-            3.	add broth and cook until the potatoes are softened
-            4.	you can add some milk or cream
+            <step>dice onions, potatoes</step>
+            <step>saute in oil/butter until browned, then add garlic</step>
+            <step>add broth and cook until the potatoes are softened</step>
+            <step>you can add some milk or cream</step>
         </sbs_description>
         <tags>pasta, meat, dinner</tags>
         <image>potatosoup</image>
@@ -219,8 +219,8 @@
         <cooking_time>30</cooking_time>
         <preparation_time>20</preparation_time>
         <sbs_description>
-            1.	dice tomatoes and onions and put them into a bowl
-            2.	add salt, pepper, vinegar and olive oil
+            <step>dice tomatoes and onions and put them into a bowl</step>
+            <step>add salt, pepper, vinegar and olive oil</step>
         </sbs_description>
         <tags>healthy, vegan</tags>
         <image>tomatosalad</image>
