@@ -37,7 +37,7 @@ public class AddRecipe extends AppCompatActivity {
     static String description;
     static int prep_time;
     static int cooking_time;
-    static ArrayList<String> sbs_description;
+    static ArrayList<GuideStep> sbs_description;
     static Image food_picture;
 
     static Boolean[] tags = new Boolean[10];
@@ -208,14 +208,14 @@ public class AddRecipe extends AppCompatActivity {
                     description = input_description.getText().toString();
                     prep_time = Integer.parseInt(input_prep_time.getText().toString());
                     cooking_time = Integer.parseInt(input_cooking_time.getText().toString());
-                    sbs_description = new ArrayList<String>(); //TODO
+                    sbs_description = new ArrayList<GuideStep>(); //TODO
 
                     if (Recipe.edit_recipe == true) {
                         Recipe.recipe_to_edit.setName(name);
                         Recipe.recipe_to_edit.setDescription(description);
                         Recipe.recipe_to_edit.setPrep_time(prep_time);
                         Recipe.recipe_to_edit.setCooking_time(cooking_time);
-                        Recipe.recipe_to_edit.setSBSDescription(new ArrayList<String>()); //TODO
+                        Recipe.recipe_to_edit.setSBSDescription(new ArrayList<GuideStep>()); //TODO
 
                         Recipe.recipe_to_edit.setPasta(tags[0]);
                         Recipe.recipe_to_edit.setMeat(tags[1]);

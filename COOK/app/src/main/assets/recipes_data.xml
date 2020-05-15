@@ -4,21 +4,30 @@
         <id>0</id>
         <name>Bolognese</name>
         <description>
-            desc ="with minced meat, vegetables and tomato sauce\r\n
+            spaghetti with minced meat, vegetables and tomato sauce
             Ingredients:
             •    Onions, garlic, carrots, celery
             •    Minced meat
             •    Tomato sauce
             •    Basil, oregano, salt, pepper, thyme
-            •    oil"
+            •    oil
         </description>
         <cooking_time>30</cooking_time>
         <preparation_time>20</preparation_time>
         <sbs_description>
-            <step>heat saucepan, add oil, vegetables, thyme and salt</step>
-            <step>add minced meat and cook until browned all over</step>
-            <step>add tomato sauce and simmer</step>
-            <step>add some more spices</step>
+            <step>
+                <step_text>heat saucepan, add oil, vegetables, thyme and salt</step_text>
+            </step>
+            <step>
+                <step_text>add minced meat and cook until browned all over</step_text>
+            </step>
+            <step>
+                <step_text>add tomato sauce and simmer</step_text>
+            </step>
+            <step>
+                <step_text>add some more spices</step_text>
+                <step_image>bolognese</step_image>
+            </step>
         </sbs_description>
         <tags>pasta, meat, dinner</tags>
         <image>bolognese</image>
@@ -27,22 +36,30 @@
         <id>1</id>
         <name>Pancakes</name>
         <description>
-            desc ="sweet and fluffy pancakes \r\n
+            sweet and fluffy pancakes
             Ingredients:
             •	flour
             •	milk
             •	eggs
             •	butter
             •	sugar
-            •	salt"
+            •	salt
         </description>
         <prep_time>10</prep_time>
         <cooking_time>15</cooking_time>
         <sbs_description>
-            <step>whisk egg whites</step>
-            <step>mix egg yolks with rest of ingredients</step>
-            <step>fold in whisked egg whites</step>
-            <step>cook on non-stick pan over medium heat until surface is somewhat dry, then turn over</step>
+            <step>
+                <step_text>whisk egg whites</step_text>
+            </step>
+            <step>
+                <step_text>mix egg yolks with rest of ingredients</step_text>
+            </step>
+            <step>
+                <step_text>fold in whisked egg whites</step_text>
+            </step>
+            <step>
+                <step_text>cook on non-stick pan over medium heat until surface is somewhat dry, then turn over</step_text>
+            </step>
         </sbs_description>
         <tags>breakfast, sweets</tags>
         <image>pancakes</image>
@@ -51,20 +68,28 @@
         <id>2</id>
         <name>Banana bread</name>
         <description>
-            desc ="sweet and light banana bread\r\n
+            sweet and light banana bread
             Ingredients:
             •	bananas
             •	oil
             •	sugar
-            •	flour"
+            •	flour
         </description>
         <prep_time>10</prep_time>
         <cooking_time>20</cooking_time>
         <sbs_description>
-            <step>heat oven</step>
-            <step>add ingredients in a bowl and mix</step>
-            <step>put dough in oven save form</step>
-            <step>bake for 20 minutes (180C)</step>
+            <step>
+                <step_text>heat oven</step_text>
+            </step>
+            <step>
+                <step_text>add ingredients in a bowl and mix</step_text>
+            </step>
+            <step>
+                <step_text>put dough in oven save form</step_text>
+            </step>
+            <step>
+                <step_text>bake for 20 minutes (180C)</step_text>
+            </step>
         </sbs_description>
         <tags>breakfast, sweets, healthy, vegan</tags>
         <image>bananabread</image>
@@ -73,7 +98,7 @@
         <id>3</id>
         <name>Quiche Lorraine</name>
         <description>
-            desc ="French vegetable tarte\r\n
+            French vegetable tarte
             Ingredients:
             •	quiche dough
             •	oil
@@ -82,16 +107,26 @@
             •	cheese
             •	bacon
             •	leek/onion
-            •	nutmeg, salt, pepper"
+            •	nutmeg, salt, pepper
         </description>
         <prep_time>25</prep_time>
         <cooking_time>30</cooking_time>
         <sbs_description>
-            <step>roll out pastry, lift into tin</step>
-            <step>beat eggs in a bowl, add cream</step>
-            <step>fry onions/leek and add into bowl</step>
-            <step>add filling into pastry</step>
-            <step>bake 25 min (180 C°)</step>
+            <step>
+                <step_text>stroll out pastry, lift into tin</step_text>
+            </step>
+            <step>
+                <step_text>beat eggs in a bowl, add cream</step_text>
+            </step>
+            <step>
+                <step_text>fry onions/leek and add into bowl</step_text>
+            </step>
+            <step>
+                <step_text>add filling into pastry</step_text>
+            </step>
+            <step>
+                <step_text>bake 25 min (180 C°)</step_text>
+            </step>
         </sbs_description>
         <tags>lunch</tags>
         <image>quiche</image>
@@ -100,18 +135,24 @@
         <id>4</id>
         <name>fried eggs</name>
         <description>
-            desc ="eggs fried in a pan\r\n
+            eggs fried in a pan
             Ingredients:
             •	eggs
             •	oil
-            •	salt"
+            •	salt
         </description>
         <prep_time>5</prep_time>
         <cooking_time>5</cooking_time>
         <sbs_description>
-            <step>crack the egg into a pan (medium heat, oiled)</step>
-            <step>add salt, chives</step>
-            <step>keep an eye on the yolks</step>
+            <step>
+                <step_text>crack the egg into a pan (medium heat, oiled)</step_text>
+            </step>
+            <step>
+                <step_text>add salt, chives</step_text>
+            </step>
+            <step>
+                <step_text>keep an eye on the yolks</step_text>
+            </step>
         </sbs_description>
         <tags>breakfast</tags>
         <image>friedeggs</image>
@@ -120,20 +161,28 @@
         <id>5</id>
         <name>Pizza</name>
         <description>
-            desc ="whatever you like on dough\r\n
+            whatever you like on dough
             Ingredients:
             •	pizza dough (self-made or bought)
             •	tomato sauce
             •	mozzarella
-            •	ham/prosciutto/vegetables"
+            •	ham/prosciutto/vegetables
         </description>
         <cooking_time>25</cooking_time>
         <preparation_time>10</preparation_time>
         <sbs_description>
-            <step>spread tomato sauce</step>
-            <step>spread chunks of mozzarella</step>
-            <step>add toppings and spices you like</step>
-            <step>put in preheated oven on maximum heat for 5-10 min</step>
+            <step>
+                <step_text>spread tomato sauce</step_text>
+            </step>
+            <step>
+                <step_text>spread chunks of mozzarella</step_text>
+            </step>
+            <step>
+                <step_text>add toppings and spices you like</step_text>
+            </step>
+            <step>
+                <step_text>put in preheated oven on maximum heat for 5-10 min</step_text>
+            </step>
         </sbs_description>
         <tags>fast food</tags>
         <image>pizza</image>
@@ -142,7 +191,7 @@
         <id>6</id>
         <name>Vegetable soup</name>
         <description>
-            desc ="the best of all vegetable soups\r\n
+            the best of all vegetable soups
             Ingredients:
             •	vegetable broth (self-made or instant)
             •	onions, garlic
@@ -150,15 +199,23 @@
             •	celery
             •	parsley, chives, salt, pepper
             •	oil
-            •	tomato purée"
+            •	tomato purée
         </description>
         <cooking_time>30</cooking_time>
         <preparation_time>30</preparation_time>
         <sbs_description>
-            <step>gently cook onions, carrots and celery</step>
-            <step>add tomato purée, garlic and herbs</step>
-            <step>add broth and let simmer for a while</step>
-            <step>sprinkle with some herbs</step>
+            <step>
+                <step_text>tgently cook onions, carrots and celery</step_text>
+            </step>
+            <step>
+                <step_text>add tomato purée, garlic and herbs</step_text>
+            </step>
+            <step>
+                <step_text>add broth and let simmer for a while</step_text>
+            </step>
+            <step>
+                <step_text>sprinkle with some herbs</step_text>
+            </step>
         </sbs_description>
         <tags>soup, lunch, healthy</tags>
         <image>vegsoup</image>
@@ -167,18 +224,22 @@
         <id>7</id>
         <name>Garlic chicken</name>
         <description>
-            desc ="chicken filet fried in garlic butter\r\n
+            chicken filet fried in garlic butter\r\n
             Ingredients:
             •	chicken filet
             •	butter
             •	garlic
-            •	salt, pepper, oil "
+            •	salt, pepper, oil
         </description>
         <cooking_time>10</cooking_time>
         <preparation_time>15</preparation_time>
         <sbs_description>
-            <step>heat pan to medium heat, add butter and smashed garlic</step>
-            <step>add pieces of chicken and cook until golden</step>
+            <step>
+                <step_text>theat pan to medium heat, add butter and smashed garlic</step_text>
+            </step>
+            <step>
+                <step_text>add pieces of chicken and cook until golden</step_text>
+            </step>
         </sbs_description>
         <tags>meat, dinner</tags>
         <image>garlichicken</image>
@@ -187,20 +248,28 @@
         <id>8</id>
         <name>Potato soup</name>
         <description>
-            desc ="rich and tasty potato soup\r\n
+            rich and tasty potato soup
             Ingredients:
             •	onion, garlic
             •	potatoes
             •	brouth
-            •	oil/butter, salt, pepper "
+            •	oil/butter, salt, pepper
         </description>
         <cooking_time>15</cooking_time>
         <preparation_time>35</preparation_time>
         <sbs_description>
-            <step>dice onions, potatoes</step>
-            <step>saute in oil/butter until browned, then add garlic</step>
-            <step>add broth and cook until the potatoes are softened</step>
-            <step>you can add some milk or cream</step>
+            <step>
+                <step_text>dice onions, potatoes</step_text>
+            </step>
+            <step>
+                <step_text>saute in oil/butter until browned, then add garlic</step_text>
+            </step>
+            <step>
+                <step_text>add broth and cook until the potatoes are softened</step_text>
+            </step>
+            <step>
+                <step_text>you can add some milk or cream</step_text>
+            </step>
         </sbs_description>
         <tags>pasta, meat, dinner</tags>
         <image>potatosoup</image>
@@ -209,18 +278,22 @@
         <id>9</id>
         <name>Tomato salad</name>
         <description>
-            desc ="quick and healthy tomato salat\r\n
+            quick and healthy tomato salat\r\n
             Ingredients:
             •	tomatoes
             •	onions
             •	vinegar, olive oil
-            •	salt, pepper "
+            •	salt, pepper
         </description>
         <cooking_time>30</cooking_time>
         <preparation_time>20</preparation_time>
         <sbs_description>
-            <step>dice tomatoes and onions and put them into a bowl</step>
-            <step>add salt, pepper, vinegar and olive oil</step>
+            <step>
+                <step_text>dice tomatoes and onions and put them into a bowl</step_text>
+            </step>
+            <step>
+                <step_text>add salt, pepper, vinegar and olive oil</step_text>
+            </step>
         </sbs_description>
         <tags>healthy, vegan</tags>
         <image>tomatosalad</image>

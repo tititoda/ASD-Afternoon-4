@@ -199,8 +199,8 @@ public class MainActivity extends AppCompatActivity {
                             matches++;
                         }
                         else {
-                            for (String step : r.getSBSDescription()) {
-                                if (step.toLowerCase().contains(word.toLowerCase())) {
+                            for (GuideStep step : r.getSBSDescription()) {
+                                if (step.getDescription().toLowerCase().contains(word.toLowerCase())) {
                                     matches++;
                                     break;
                                 }
@@ -364,7 +364,7 @@ public class MainActivity extends AppCompatActivity {
         String description = AddRecipe.description;
         int prep_time = AddRecipe.prep_time;
         int cooking_time = AddRecipe.cooking_time;
-        ArrayList<String> sbs_description = AddRecipe.sbs_description;
+        ArrayList<GuideStep> sbs_description = AddRecipe.sbs_description;
         int food_picture = this.getResources().getIdentifier("tarator" ,
                 "drawable", getPackageName());
         Boolean[] tags = AddRecipe.tags;
