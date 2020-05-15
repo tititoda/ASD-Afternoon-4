@@ -3,14 +3,13 @@
     <object>
         <id>0</id>
         <name>Bolognese</name>
-        <description>
-            spaghetti with minced meat, vegetables and tomato sauce
-            Ingredients:
-            •    Onions, garlic, carrots, celery
-            •    Minced meat
-            •    Tomato sauce
-            •    Basil, oregano, salt, pepper, thyme
-            •    oil
+        <description>spaghetti with minced meat, vegetables and tomato sauce
+Ingredients:
+•    Onions, garlic, carrots, celery
+•    Minced meat
+•    Tomato sauce
+•    Basil, oregano, salt, pepper, thyme
+•    oil
         </description>
         <cooking_time>30</cooking_time>
         <preparation_time>20</preparation_time>
@@ -35,15 +34,14 @@
     <object>
         <id>1</id>
         <name>Pancakes</name>
-        <description>
-            sweet and fluffy pancakes
-            Ingredients:
-            •	flour
-            •	milk
-            •	eggs
-            •	butter
-            •	sugar
-            •	salt
+        <description>sweet and fluffy pancakes
+Ingredients:
+•	flour
+•	milk
+•	eggs
+•	butter
+•	sugar
+•	salt
         </description>
         <prep_time>10</prep_time>
         <cooking_time>15</cooking_time>
@@ -67,13 +65,12 @@
     <object>
         <id>2</id>
         <name>Banana bread</name>
-        <description>
-            sweet and light banana bread
-            Ingredients:
-            •	bananas
-            •	oil
-            •	sugar
-            •	flour
+        <description>sweet and light banana bread
+Ingredients:
+•	bananas
+•	oil
+•	sugar
+•	flour
         </description>
         <prep_time>10</prep_time>
         <cooking_time>20</cooking_time>
@@ -97,17 +94,16 @@
     <object>
         <id>3</id>
         <name>Quiche Lorraine</name>
-        <description>
-            French vegetable tarte
-            Ingredients:
-            •	quiche dough
-            •	oil
-            •	eggs
-            •	whipped cream
-            •	cheese
-            •	bacon
-            •	leek/onion
-            •	nutmeg, salt, pepper
+        <description>French vegetable tarte
+Ingredients:
+•	quiche dough
+•	oil
+•	eggs
+•	whipped cream
+•	cheese
+•	bacon
+•	leek/onion
+•	nutmeg, salt, pepper
         </description>
         <prep_time>25</prep_time>
         <cooking_time>30</cooking_time>
@@ -134,12 +130,11 @@
     <object>
         <id>4</id>
         <name>fried eggs</name>
-        <description>
-            eggs fried in a pan
-            Ingredients:
-            •	eggs
-            •	oil
-            •	salt
+        <description>eggs fried in a pan
+Ingredients:
+•	eggs
+•	oil
+•	salt
         </description>
         <prep_time>5</prep_time>
         <cooking_time>5</cooking_time>
@@ -160,13 +155,12 @@
     <object>
         <id>5</id>
         <name>Pizza</name>
-        <description>
-            whatever you like on dough
-            Ingredients:
-            •	pizza dough (self-made or bought)
-            •	tomato sauce
-            •	mozzarella
-            •	ham/prosciutto/vegetables
+        <description>whatever you like on dough
+Ingredients:
+•	pizza dough (self-made or bought)
+•	tomato sauce
+•	mozzarella
+•	ham/prosciutto/vegetables
         </description>
         <cooking_time>25</cooking_time>
         <preparation_time>10</preparation_time>
@@ -190,16 +184,15 @@
     <object>
         <id>6</id>
         <name>Vegetable soup</name>
-        <description>
-            the best of all vegetable soups
-            Ingredients:
-            •	vegetable broth (self-made or instant)
-            •	onions, garlic
-            •	carrots
-            •	celery
-            •	parsley, chives, salt, pepper
-            •	oil
-            •	tomato purée
+        <description>the best of all vegetable soups
+Ingredients:
+•	vegetable broth (self-made or instant)
+•	onions, garlic
+•	carrots
+•	celery
+•	parsley, chives, salt, pepper
+•	oil
+•	tomato purée
         </description>
         <cooking_time>30</cooking_time>
         <preparation_time>30</preparation_time>
@@ -223,13 +216,12 @@
     <object>
         <id>7</id>
         <name>Garlic chicken</name>
-        <description>
-            chicken filet fried in garlic butter\r\n
-            Ingredients:
-            •	chicken filet
-            •	butter
-            •	garlic
-            •	salt, pepper, oil
+        <description>chicken filet fried in garlic butter\r\n
+Ingredients:
+•	chicken filet
+•	butter
+•	garlic
+•	salt, pepper, oil
         </description>
         <cooking_time>10</cooking_time>
         <preparation_time>15</preparation_time>
@@ -247,13 +239,12 @@
     <object>
         <id>8</id>
         <name>Potato soup</name>
-        <description>
-            rich and tasty potato soup
-            Ingredients:
-            •	onion, garlic
-            •	potatoes
-            •	brouth
-            •	oil/butter, salt, pepper
+        <description>rich and tasty potato soup
+Ingredients:
+•	onion, garlic
+•	potatoes
+•	brouth
+•	oil/butter, salt, pepper
         </description>
         <cooking_time>15</cooking_time>
         <preparation_time>35</preparation_time>
@@ -277,13 +268,12 @@
     <object>
         <id>9</id>
         <name>Tomato salad</name>
-        <description>
-            quick and healthy tomato salat\r\n
-            Ingredients:
-            •	tomatoes
-            •	onions
-            •	vinegar, olive oil
-            •	salt, pepper
+        <description>quick and healthy tomato salat\r\n
+Ingredients:
+•	tomatoes
+•	onions
+•	vinegar, olive oil
+•	salt, pepper
         </description>
         <cooking_time>30</cooking_time>
         <preparation_time>20</preparation_time>

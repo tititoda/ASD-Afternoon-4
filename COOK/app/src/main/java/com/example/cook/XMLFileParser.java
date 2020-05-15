@@ -81,7 +81,7 @@ public class XMLFileParser {
                         if (step == null) {
                             step = new GuideStep(step_id++);
                         }
-                        step.setDescription(parser.getText().substring(6));
+                        step.setDescription(parser.getText());
                     }
                     else if("step_image".equals(parser.getName())){
                         parser.next();
