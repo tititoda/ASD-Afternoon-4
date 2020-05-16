@@ -27,6 +27,7 @@ import org.xml.sax.SAXException;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -36,7 +37,7 @@ public class AddRecipe extends AppCompatActivity {
     static String description;
     static int prep_time;
     static int cooking_time;
-    static String sbs_description;
+    static ArrayList<GuideStep> sbs_description;
     static Image food_picture;
 
     static Boolean[] tags = new Boolean[10];
@@ -80,7 +81,11 @@ public class AddRecipe extends AppCompatActivity {
             input_description.setText(Recipe.recipe_to_edit.getDescription());
             input_prep_time.setText(String.valueOf(Recipe.recipe_to_edit.getPrep_time()));
             input_cooking_time.setText(String.valueOf(Recipe.recipe_to_edit.getCooking_time()));
-            input_sbs_description.setText(Recipe.recipe_to_edit.getSBSDescription());
+            String sbs_tmp = "";
+            for (GuideStep gs : Recipe.recipe_to_edit.getSBSDescription()) {
+                sbs_tmp += (gs.getDescription() + "\n");
+            }
+            input_sbs_description.setText(sbs_tmp);
 
             tag0.setChecked(Recipe.recipe_to_edit.isPasta());
             tag1.setChecked(Recipe.recipe_to_edit.isMeat());
@@ -205,7 +210,13 @@ public class AddRecipe extends AppCompatActivity {
                     description = input_description.getText().toString();
                     prep_time = Integer.parseInt(input_prep_time.getText().toString());
                     cooking_time = Integer.parseInt(input_cooking_time.getText().toString());
-                    sbs_description = input_sbs_description.getText().toString();
+                    sbs_description = new ArrayList<GuideStep>();
+                    //TODO: find a way of remembering the id of steps while editing
+                    //      (currently new ids are assigned and old ones dropped)
+                    //      we also have to remember the old images! currently they will be deleted when editing here
+                    for (String description : input_sbs_description.getText().toString().split("\\r?\\n")) {
+                        sbs_description.add(new GuideStep(GuideStep.next_id, description, GuideStep.NO_PICTURE));
+                    }
 
                     if (Recipe.edit_recipe == true) {
                         Recipe.recipe_to_edit.setName(name);
