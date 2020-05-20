@@ -1,18 +1,22 @@
 package com.example.cook;
 
-import android.media.Image;
+        import android.media.Image;
 
-import org.junit.Test;
+        import org.junit.Before;
+        import org.junit.Test;
 
-import java.util.ArrayList;
+        import java.util.ArrayList;
 
-import static org.junit.Assert.*;
+        import static org.junit.Assert.*;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
+
+
+
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
@@ -21,6 +25,7 @@ public class ExampleUnitTest {
 
 
     //Tests if the get/set methods are implemented correctly
+    @Test
     public void addRecipeGetSetCorrect(){
         // args for  testing
         int id = 1;
@@ -29,7 +34,7 @@ public class ExampleUnitTest {
         int prepareTime = 4;
         int cookingTime = 5;
         int testImage = 1000;
-        String sbsDescription = "step by step";
+        ArrayList<GuideStep> sbsDescription = new ArrayList();
         //        pasta = Tags[0];
         //        meat = Tags[1];
         //        dinner = Tags[2];
@@ -96,7 +101,7 @@ public class ExampleUnitTest {
         int prepareTime = 4;
         int cookingTime = 5;
         int testImage = 1000;
-        String sbsDescription = "step by step";
+        ArrayList<GuideStep> sbsDescription = new ArrayList();
         //        pasta = Tags[0];
         //        meat = Tags[1];
         //        dinner = Tags[2];
@@ -144,7 +149,7 @@ public class ExampleUnitTest {
         int prepareTime = 4;
         int cookingTime = 5;
         int testImage = 1000;
-        String sbsDescription = "step by step";
+        ArrayList<GuideStep> sbsDescription = new ArrayList();
         //        pasta = Tags[0];
         //        meat = Tags[1];
         //        dinner = Tags[2];
@@ -186,7 +191,7 @@ public class ExampleUnitTest {
         int prepareTime = 4;
         int cookingTime = 5;
         int testImage = 1000;
-        String sbsDescription = "step by step";
+        ArrayList<GuideStep> sbsDescription = new ArrayList();
         //        pasta = Tags[0];
         //        meat = Tags[1];
         //        dinner = Tags[2];
@@ -232,6 +237,8 @@ public class ExampleUnitTest {
 
     }
 
+
+    @Test
     public void testAddRecipe()
     {
 
@@ -241,7 +248,7 @@ public class ExampleUnitTest {
         int prepareTime = 4;
         int cookingTime = 5;
         Image testImage = null;
-        String sbsDescription = "step by step";
+        ArrayList<GuideStep> sbsDescription = new ArrayList();
         Boolean[] tags = new Boolean[]{true, false, true, false, true,
                 false, true, false, true, false};
 
