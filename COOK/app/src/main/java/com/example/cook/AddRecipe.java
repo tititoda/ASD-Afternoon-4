@@ -39,7 +39,8 @@ public class AddRecipe extends AppCompatActivity {
     static int cooking_time;
     static String food_picture;
     static  int food_picture_index;
-    static ArrayList<GuideStep> sbs_description = null;
+    static ArrayList<GuideStep> sbs_description = new ArrayList<GuideStep>();;
+    static String tmp_food_picture;
 
     static boolean select_image = false;
 
@@ -86,14 +87,8 @@ public class AddRecipe extends AppCompatActivity {
             input_description.setText(description);
             input_cooking_time.setText(Integer.toString(cooking_time));
             input_prep_time.setText(Integer.toString(prep_time));
+            input_sbs_description.setText(tmp_food_picture);
 
-            String tmp_sbs = "";
-            for (int i = 0; i < sbs_description.size(); i++)
-            {
-                tmp_sbs += sbs_description.get(i);
-            }
-
-            input_sbs_description.setText(tmp_sbs);
             input_picture.setImageResource(this.getResources().getIdentifier(food_picture,
                     "drawable", getPackageName()));
         }
@@ -233,13 +228,13 @@ public class AddRecipe extends AppCompatActivity {
                     description = input_description.getText().toString();
                     prep_time = Integer.parseInt(input_prep_time.getText().toString());
                     cooking_time = Integer.parseInt(input_cooking_time.getText().toString());
+                    tmp_food_picture = input_sbs_description.getText().toString();
 
                     //TODO: find a way of remembering the id of steps while editing
                     //      (currently new ids are assigned and old ones dropped)
                     //      we also have to remember the old images! currently they will be deleted when editing here
 
-                    sbs_description = new ArrayList<GuideStep>();
-                    for (String description : input_sbs_description.getText().toString().split("\\r?\\n")) {
+                    for (String description : tmp_food_picture.split("\\r?\\n")) {
                         sbs_description.add(new GuideStep(GuideStep.next_id, description, GuideStep.NO_PICTURE));
                     }
 
@@ -279,12 +274,7 @@ public class AddRecipe extends AppCompatActivity {
                 description = input_description.getText().toString();
                 prep_time = Integer.parseInt(input_prep_time.getText().toString());
                 cooking_time = Integer.parseInt(input_cooking_time.getText().toString());
-
-                sbs_description = new ArrayList<GuideStep>();
-                for (String description : input_sbs_description.getText().toString().split("\\r?\\n")) {
-                    sbs_description.add(new GuideStep(GuideStep.next_id, description, GuideStep.NO_PICTURE));
-                }
-
+                tmp_food_picture = input_sbs_description.getText().toString();
 
                 Intent select_image_intend = new Intent(AddRecipe.this, Gallery.class);
                 startActivity(select_image_intend);
