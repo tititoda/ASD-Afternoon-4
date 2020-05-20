@@ -13,6 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Gallery"></activity>
         <activity android:name=".AddRecipe" />
+        <activity android:name=".DetailView"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
