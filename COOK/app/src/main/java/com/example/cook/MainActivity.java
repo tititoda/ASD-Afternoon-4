@@ -249,7 +249,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(add_recipe_intent);
         finish();
     }
-
+    public void startDetailView(View v) {
+        Intent detail_view_intent = new Intent(MainActivity.this, DetailView.class);
+        startActivity(detail_view_intent);
+    }
     //context menu items
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -365,7 +368,7 @@ public class MainActivity extends AppCompatActivity {
         int prep_time = AddRecipe.prep_time;
         int cooking_time = AddRecipe.cooking_time;
         ArrayList<GuideStep> sbs_description = AddRecipe.sbs_description;
-        int food_picture = this.getResources().getIdentifier("tarator" ,
+        int food_picture = this.getResources().getIdentifier(AddRecipe.food_picture ,
                 "drawable", getPackageName());
         Boolean[] tags = AddRecipe.tags;
 
