@@ -10,6 +10,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,10 +25,12 @@ public class XMLFileParser {
         int id = 0;
         String name = null;
         String description = null;
+        GuideStep step = null;
+        int step_id = 0;
         int prepareTime = 0;
         int cookingTime = 0;
         int recipeImage = 0;
-        String sbsDescription = null;
+        ArrayList<GuideStep> sbsDescription = null;
         Boolean[] tags = new Boolean[]{false, false, false, false, false, false, false,
                 false, false, false};
         int idFavorite = 0;
@@ -63,7 +66,30 @@ public class XMLFileParser {
                     }
                     else if("sbs_description".equals(parser.getName())){
                         parser.next();
-                        sbsDescription = parser.getText();
+                        sbsDescription = new ArrayList<GuideStep>();
+                    }
+                    else if("step".equals((parser.getName()))) {
+                        parser.next();
+                        if (sbsDescription == null) {
+                            sbsDescription = new ArrayList<GuideStep>();
+                        }
+                        step = new GuideStep(step_id++);
+                        sbsDescription.add(step);
+                    }
+                    else if("step_text".equals(parser.getName())){
+                        parser.next();
+                        if (step == null) {
+                            step = new GuideStep(step_id++);
+                        }
+                        step.setDescription(parser.getText());
+                    }
+                    else if("step_image".equals(parser.getName())){
+                        parser.next();
+                        if (step == null) {
+                            step = new GuideStep(step_id++);
+                        }
+                        step.setStepPicture(context.getResources().getIdentifier(parser.getText() ,
+                                "drawable", context.getPackageName()));
                     }
                     else if("tags".equals(parser.getName())){
                         parser.next();
