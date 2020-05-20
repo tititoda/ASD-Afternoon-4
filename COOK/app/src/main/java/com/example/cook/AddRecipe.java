@@ -20,16 +20,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.view.View.OnClickListener;
-import android.widget.TextView;
-
-import org.xml.sax.SAXException;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
 
 public class AddRecipe extends AppCompatActivity {
     static String name;
@@ -37,7 +27,10 @@ public class AddRecipe extends AppCompatActivity {
     static int prep_time;
     static int cooking_time;
     static String sbs_description;
-    static Image food_picture;
+    static String food_picture;
+    static  int food_picture_index;
+
+    static boolean select_image = false;
 
     static Boolean[] tags = new Boolean[10];
 
@@ -51,7 +44,7 @@ public class AddRecipe extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_add_recipe);
@@ -62,6 +55,7 @@ public class AddRecipe extends AppCompatActivity {
         final EditText input_prep_time = findViewById(R.id.inputPreparationTime);
         final EditText input_cooking_time = findViewById(R.id.inputCookingTime);
         final EditText input_sbs_description = findViewById(R.id.inputSbs);
+        final ImageView input_picture = findViewById(R.id.imageView);
 
 
         tag0 = (CheckBox) findViewById(R.id.tag0);
@@ -74,6 +68,17 @@ public class AddRecipe extends AppCompatActivity {
         tag7 = (CheckBox) findViewById(R.id.tag7);
         tag8 = (CheckBox) findViewById(R.id.tag8);
         tag9 = (CheckBox) findViewById(R.id.tag9);
+
+        if(select_image)
+        {
+            input_name.setText(name);
+            input_description.setText(description);
+            input_cooking_time.setText(Integer.toString(cooking_time));
+            input_prep_time.setText(Integer.toString(prep_time));
+            input_sbs_description.setText(sbs_description);
+            input_picture.setImageResource(this.getResources().getIdentifier(food_picture,
+                    "drawable", getPackageName()));
+        }
 
         if (Recipe.edit_recipe == true) {
             input_name.setText(Recipe.recipe_to_edit.getName());
@@ -197,7 +202,7 @@ public class AddRecipe extends AppCompatActivity {
                 else if(input_description.getText().toString().isEmpty()) showError("recipe description");
                 else if(input_prep_time.getText().toString().isEmpty()) showError("preparation time");
                 else if(input_cooking_time.getText().toString().isEmpty()) showError("cooking time");
-                else if(input_sbs_description.getText().toString().isEmpty()) showError("step by step description");
+                //else if(input_sbs_description.getText().toString().isEmpty()) showError("step by step description");
                 else if(!checkTags()) showError("any tags");
                 else
                 {
@@ -234,97 +239,25 @@ public class AddRecipe extends AppCompatActivity {
 
                     finish();
                 }
-
-                //MainActivity.recipes.add(new Recipe(100, name, description, prep_time,
-                //       cooking_time, food_picture, sbs_description, getTags()));
-
-                //Recipe new_recipe = new Recipe(100, name, description, prep_time,
-                //       cooking_time, food_picture, sbs_description, getTags());
-
-/*
-                XMLFileParser parse = new XMLFileParser();
-
-                try {
-                    parse.XMLAddRecipe(current);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ParserConfigurationException e) {
-                    e.printStackTrace();
-                } catch (SAXException e) {
-                    e.printStackTrace();
-                } catch (TransformerException e) {
-                    e.printStackTrace();
-                }
-
-*/
-                //food_picture = input_picture.getIma
-
-                //Test
-                //description.setText(name);
             }
         });
-
-        /*submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //submit function
-
-                //construct Recipe
-
-                recipes recipe = new recipes(1, name, description, prep_time, cook_time, picture, tags);
-
-                //add to recipes[]
-
-
-                //save recipes in XML
-
-
-            }
-        });*/
-
-
-        recipe_image = findViewById(R.id.imageView);
-
         add_picture_button.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, 0);
+                name = input_name.getText().toString();
+                description = input_description.getText().toString();
+                prep_time = Integer.parseInt(input_prep_time.getText().toString());
+                cooking_time = Integer.parseInt(input_cooking_time.getText().toString());
+                sbs_description = input_sbs_description.getText().toString();
+
+                Intent select_image_intend = new Intent(AddRecipe.this, Gallery.class);
+                startActivity(select_image_intend);
+
             }
         });
 
 
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == RESULT_OK) {
-            Uri image_uri = data.getData();
-            Bitmap bitmap;
-            try {
-                bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(image_uri));
-                recipe_image.setImageBitmap(bitmap);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-
-    /*protected void submitRecipe() {
-        submit_btn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Log.v("EditText", recipe_name.getText().toString());
-                Log.v("EditText", recipe_cooking_time.getText().toString());
-                Log.v("EditText", recipe_preparation_time.getText().toString());
-                Log.v("EditText", recipe_Sbs.getText().toString());
-            }
-
-        });
-    }*/
 
     private boolean checkTags()
     {
