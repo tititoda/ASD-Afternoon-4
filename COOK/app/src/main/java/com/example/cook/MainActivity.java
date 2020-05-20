@@ -368,7 +368,7 @@ public class MainActivity extends AppCompatActivity {
         int prep_time = AddRecipe.prep_time;
         int cooking_time = AddRecipe.cooking_time;
         ArrayList<GuideStep> sbs_description = AddRecipe.sbs_description;
-        int food_picture = this.getResources().getIdentifier("tarator" ,
+        int food_picture = this.getResources().getIdentifier(AddRecipe.food_picture ,
                 "drawable", getPackageName());
         Boolean[] tags = AddRecipe.tags;
 
