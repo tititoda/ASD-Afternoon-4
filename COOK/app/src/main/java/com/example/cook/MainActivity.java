@@ -249,7 +249,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(add_recipe_intent);
         finish();
     }
-
+    public void startDetailView(View v) {
+        Intent detail_view_intent = new Intent(MainActivity.this, DetailView.class);
+        startActivity(detail_view_intent);
+    }
     //context menu items
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {

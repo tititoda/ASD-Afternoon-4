@@ -133,4 +133,13 @@
         android:textAllCaps="true"
         android:textColor="@android:color/white" />
 
+    <Button
+        android:id="@+id/button_detail_view"
+        style="@android:style/Widget.Holo.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="true"
+        android:text="+" />
+
 </RelativeLayout>
