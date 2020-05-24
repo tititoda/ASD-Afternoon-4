@@ -105,7 +105,7 @@ public class Recipe {
             if((temp.getName().compareTo(recipeName)) == 0)
                 return temp;
         }
-        return new Recipe();
+        return null;//new Recipe();
     }
 
     public static int getRecipeObjectCount() {

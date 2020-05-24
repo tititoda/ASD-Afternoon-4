@@ -62,7 +62,7 @@ public class OverviewListAdapter extends ArrayAdapter<String> {
         viewHolder.detailViewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DetailView.detail_view_recipe = Recipe.getRecipeByName(recipeName[position]);
+                DetailView.detail_view_recipe = Recipe.getRecipeByName(recipeName[position]);//????
                 Intent detail_view_intent = new Intent(context, DetailView.class);
                 context.startActivity(detail_view_intent);
             }
@@ -75,11 +75,11 @@ public class OverviewListAdapter extends ArrayAdapter<String> {
         viewHolder.textViewRecipeType.setText(recipeType[position]);
         viewHolder.switchFavorite.setText(recipeName[position]);
         if(isFavorite[position] == true) {
-            Log.i("00000000000 setTrue", recipeName[position]);
+
             viewHolder.switchFavorite.setChecked(true);
         }
         else{
-            Log.i("00000000000 setFalse", recipeName[position]);
+
             viewHolder.switchFavorite.setChecked(false);
         }
         /*
@@ -95,11 +95,10 @@ public class OverviewListAdapter extends ArrayAdapter<String> {
 
                 if(isChecked)
                 {
-                    Log.i("0000000000 add", recipeName[position]);
+
                     Recipe.favoriteRecipe.add(currentRecipe);
                 }
                 else{
-                    Log.i("0000000000 delete", recipeName[position]);
                     Recipe.favoriteRecipe.remove(currentRecipe);
                     }
             }
