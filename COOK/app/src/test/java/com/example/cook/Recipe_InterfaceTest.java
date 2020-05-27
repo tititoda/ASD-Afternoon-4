@@ -1,8 +1,10 @@
 package com.example.cook;
 
-import android.media.Image;
-import android.util.Log;
 
+
+import android.app.Activity;
+
+import static org.mockito.Mockito.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,17 +13,18 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 
-public class XMLParser_Recipe_InterfaceTest {
+public class Recipe_InterfaceTest {
 
-    int id = 1;
+    int id = 0;
     String name = "Bolognese";
     String description = "description";
-    int prepareTime = 4;
-    int cookingTime = 5;
+    int prepareTime = 20;
+    int cookingTime = 30;
     int testImage = 1000;
     ArrayList<GuideStep> sbsDescription = new ArrayList();
-    Boolean[] tags = new Boolean[]{true, false, true, false, true,
-            false, true, false, true, false};
+    Boolean[] tags = new Boolean[]{true, true, true, false, false,
+            false, false, false, false, false};
+    int test_count = 0;
     Recipe testRecipe;
 
     @Before
@@ -138,4 +141,28 @@ public class XMLParser_Recipe_InterfaceTest {
         assertEquals(newTags[8], testRecipe.isFast_food());
         assertEquals(newTags[9], testRecipe.isSoup());
     }
+
+    @Test
+    public void testTagsForListView(){
+        String testString = "pasta meat dinner";
+
+        assertEquals(testRecipe.getStringTagForListView(), testString);
+    }
+
+    @Test
+    public void testGetRecipeByName(){
+        ArrayList<Recipe> testList = mock(ArrayList.class);
+        when(testList.get(0)).thenReturn(testRecipe);
+
+        Recipe.allRecipe.add(testRecipe);
+
+        assertEquals(testList.get(0), Recipe.getRecipeByName(name));
+    }
+
+    @Test
+    public void testRecipeObjectCount(){
+        assertEquals(13, Recipe.getRecipeObjectCount());
+}
+
+
 }
