@@ -1,9 +1,13 @@
 package com.example.cook;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class GuideStep {
     private int id;
     private String description;
     private int stepPicture;
+    //private int nextId;
     public static int NO_PICTURE = -1;
     public static int NO_ID = -1;
     public static int next_id = 0;
@@ -15,7 +19,6 @@ public class GuideStep {
     }
     public GuideStep(int id, String description, int stepPicture) {
         this.id = id;
-        GuideStep.next_id = Math.max(id, next_id) + 1;
         this.description = description;
         this.stepPicture = stepPicture;
     }
@@ -40,4 +43,15 @@ public class GuideStep {
     public void setId(int id) {
         this.id = id;
     }
+
+    public static ArrayList<GuideStep> addGuideStep(ArrayList<GuideStep> currentSteps, String description, int stepPicture){
+
+        return currentSteps;
+    }
+
+    public static ArrayList<GuideStep> reorderGuideStep(ArrayList<GuideStep> currentSteps, int swap[]){
+
+        return currentSteps;
+    }
+
 }
