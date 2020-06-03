@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
-
 public class DetailViewTest{
 
     // args for constructing class
