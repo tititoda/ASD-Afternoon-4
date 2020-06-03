@@ -90,7 +90,7 @@
         android:textColor="@android:color/white" />
 
     <TextView
-        android:id="@+id/textViewCookingTime"
+        android:id="@+id/textViewStep"
         android:layout_width="120dp"
         android:layout_height="35dp"
         android:layout_alignEnd="@+id/imageViewRecipeOverview"

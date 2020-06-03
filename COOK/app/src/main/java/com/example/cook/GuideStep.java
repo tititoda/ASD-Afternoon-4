@@ -45,12 +45,17 @@ public class GuideStep {
     }
 
     public static ArrayList<GuideStep> addGuideStep(ArrayList<GuideStep> currentSteps, String description, int stepPicture){
-
+        int id = 0;
+        if(currentSteps.size() != 0)
+            id = currentSteps.get(currentSteps.size() -1).getId();
+        currentSteps.add(new GuideStep(id, description, stepPicture));
         return currentSteps;
     }
 
     public static ArrayList<GuideStep> reorderGuideStep(ArrayList<GuideStep> currentSteps, int swap[]){
-
+        if(swap.length != 2)
+            return currentSteps;
+        Collections.swap(currentSteps, swap[0], swap[1]);
         return currentSteps;
     }
 

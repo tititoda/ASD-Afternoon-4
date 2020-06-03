@@ -1,17 +1,25 @@
 package com.example.cook;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class DetailView extends AppCompatActivity {
 
 
-   static Recipe detail_view_recipe;
+   public static Recipe detail_view_recipe;
+   private Button button_sbs_overview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +33,7 @@ public class DetailView extends AppCompatActivity {
         TextView detail_view_cooking_time = findViewById(R.id.detailViewCookingTime);
         TextView detail_view_prep_time = findViewById(R.id.detailViewPreparationTime);
         TextView detail_view_sbs = findViewById(R.id.detailViewSbs);
+        button_sbs_overview = findViewById(R.id.detailViewSbsOverview);
 
 
         detail_view_img.setImageResource(detail_view_recipe.getFood_picture());
@@ -39,4 +48,18 @@ public class DetailView extends AppCompatActivity {
         }
         detail_view_sbs.setText(detail_sbs_string);
     }
+
+    public void loadGuidStepOverview(View view){
+        if(detail_view_recipe.getSBSDescription().get(0).getId() == GuideStep.NO_ID)
+        {
+            button_sbs_overview.setError("Recipe does not have a step by step description");
+        }
+        else {
+            StepByStepView.guideStep = detail_view_recipe.getSBSDescription();
+            startActivity(new Intent(this, StepByStepView.class));
+        }
+
+
+    }
+
 }

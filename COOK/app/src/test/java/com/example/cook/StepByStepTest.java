@@ -40,10 +40,7 @@ public class StepByStepTest {
         assertFalse(guideStepTwo.getId() == GuideStep.NO_ID);
     }
 
-    /*int id = 0;
-      if(currentSteps.size() != 0)
-          id = currentSteps.get(currentSteps.size() -1).getId();
-      currentSteps.add(new GuideStep(id, description, stepPicture));*/
+
     @Test
     public void TestAddNewStep(){
         ArrayList<GuideStep> arrayListAddStep = new ArrayList<>();
@@ -76,9 +73,6 @@ public class StepByStepTest {
         assertEquals(arrayListAddStep.get(0).getStepPicture(), guideStepOne.getStepPicture());
     }
 
-    /*if(swap.length != 2)
-            return currentSteps;
-        Collections.swap(currentSteps, swap[0], swap[1]);*/
     @Test
     public void TestReorderGuideStep(){
         ArrayList<GuideStep> arrayListAddStep = new ArrayList<>();
