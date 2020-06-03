@@ -20,8 +20,8 @@ public class GuideStepTest {
 
     @Before
     public void setUp(){
-        guideStepOne = new GuideStep(0);
-        guideStepTwo = new GuideStep(1, description, picture);
+        guideStepOne = new GuideStep(idOne);
+        guideStepTwo = new GuideStep(idTwo, description, picture);
     }
 
     @Test
